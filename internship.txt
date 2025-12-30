@@ -1,0 +1,153 @@
+\begin{comment}
+\label{ann:preuve-lovasz}
+\noindent\hyperref[main:lovasz]{\textit{← Retour au théorème dans le chapitre 2}}
+
+\begin{proposition}
+$(F, \sigma)$ est un $\mathbb{F}[X]$-module de dimension $m$.
+\end{proposition}
+
+\begin{proof}
+\begin{align*}
+\text{rdeg}_s(A) &= (\text{rdeg}_s(A_i))_{1 \leq i \leq m} \\
+&= \left( \max_{1 \leq j \leq m} (\deg(A_{ij}) + s_j) \right)_{1 \leq i \leq m} \\
+&= \left( \max_{1 \leq j \leq m} \deg(A_{ij} x^{s_j}) \right)_{1 \leq i \leq m} \\
+&= \left( \text{rdeg} (A_i x^s) \right)_{1 \leq i \leq m} \\
+&= \text{rdeg} (A x^s)
+\end{align*}
+\end{proof}
+
+\begin{proof}
+En cours d'écriture.
+\end{proof}
+
+\begin{proof}
+Clairement $(F, \sigma)$ est un sous-groupe de $\mathbb{F}[X]^{1 \times m}$. Soit $a \in \mathbb{F}[X]$, $m \in (F, \sigma)$. Alors par définition $(am)F=a(mF)=a \cdot 0 = 0$ et donc $am \in (F, \sigma)$. Comme $\mathbb{F}[X]$ est principal, la suite d'inclusion $x^ \sigma \mathbb{F}[X]^{1 \times m} \subseteq (F, \sigma) \subseteq \mathbb{F}[X]^{1 \times m}$ implique que $(F, \sigma)$ est un $\mathbb{F}[X]$-module de dimension $m$.
+\end{proof}
+\begin{proof}
+Nous allons nous concentrer sur la démonstration de la première propriété, la deuxième propriété se démontrant de la même façon.
+
+\begin{align*}
+\text{rdeg}_s(A) = v &\iff \text{rdeg}(A x^s) = v \\
+&\iff \text{rdeg}_i(A x^s) = v_i, \quad \text{pour } 1 \leq i \leq m \\
+&\iff \max_{1 \leq j \leq m} \deg(A_{ij} x^{s_j}) = v_i, \quad \text{pour } 1 \leq i \leq m \\
+&\iff \max_{1 \leq j \leq m} (\deg(A_{ij} x^{s_j}) - v_i) = 0, \quad \text{pour } 1 \leq i \leq m \\
+&\iff \max_{1 \leq j \leq m} (\deg(A_{ij} x^{s_j}) - v_i) = 0, \quad \text{pour } 1 \leq i \leq m \\
+&\iff \max_{1 \leq j \leq m} (\deg(A_{ij} x^{s_j}) - \deg(x^{-v_i})) = 0, \quad \text{pour } 1 \leq i \leq m \\
+&\iff \max_{1 \leq j \leq m} \deg(x^{-v_i} A_{ij} x^{s_j}) = 0, \quad \text{pour } 1 \leq i \leq m \\
+&\iff \text{rdeg}(x^{-v_i} A_{i} x^{s}) = 0, \quad \text{pour } 1 \leq i \leq m \\
+&\iff \text{rdeg}(x^{-v} A x^s) = 0.
+\end{align*}
+\end{proof}
+\end{comment}
+
+\begin{comment}
+	\begin{proof}
+		Nous avons $\|b_1\|^2 = \|b_1^*\|^2 \leq 2\|b_2^*\|^2 \leq 2^2\|b_3^*\|^2 \leq \dots \leq 2^{n-1} \|b_n^*\|^2$.	Ainsi, $\|v\| \geq \min\{\|b_1^*\|, \dots, \|b_n^*\|\} \geq 2^{-(n-1)/2} \|b_1\|$
+	\end{proof}
+	
+\end{comment}
+
+%\begin{proof}
+%	$\|b_1\|^2 = \|b_1^*\|^2 \leq \frac{\|b_2^*\|^2}{\delta - \mu_{i+1, i}^2} \leq \dots \leq \frac{\|b_n^*\|^2}{(\delta - \mu_{i+1, i}^2)^{n-1}}$. Donc, $\|v\| \geq \min \{\|b_1^*\|, \dots, \|b_n^*\|\} \geq (\delta - \mu_{i+1, i}^2)^{\frac{n-1}{2}} \|b_1\|$.
+%\end{proof}
+
+
+idées : 
+- encrypter un truc avec LLL
+intéret a etudier les Q modules ? une sorte d'entre deux entre Z module et R module, 
+parler un peu des resaus sans genertaurs genre dual 
+parler de O tildechercher un premier lien entre pol et nombre
+
+
+\subsection{Quelques utilisations de LLL}
+\subsubsection{Problème du sac à dos}
+\subsubsection{Factorisation de polynomes}
+LLL permet de fournir un algo en temps polynomial pour factoriser des polynomes univariés à coefficents entiers. On pourra modifier l'algo pour elf aire factoriser des polynomes bivcariés sur un corps qui a deja la factoriastion sur un pol univarié Q ou cirps finis
+
+	\begin{definition}
+		Soit $U \in K[X]^{m\times m}$. On dit que $U$ est \emph{unimodulaire} si $\det(U)$ est un élément inversible de $K$ (i.e. $\det(U)\neq 0$).
+	\end{definition}
+	
+	\begin{proposition}
+		$U$ est unimodulaire si, et seulement si, $U$ est inversible dans $F[X]^{m\times m}$.
+	\end{proposition}
+
+
+mult 3 3 en 21
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Liste de tous les trucs que l'on pourrait faire(premier thm minkowski)
+
+temps expo algo page 12 masi pas prio
+
+page 14 parenthese pour l'iso
+
+doupla parenthese page 14
+
+
+page 15fraction rationnelle remarque fausse juste multiplication eval interpol a la place de la remarque
+
+
+CTRL alt J pour naviguer rpidement
+
+
+
+definition 2.4 a changer
+
+renommer l'algo 1 en Mulder Strojohzn
+
+algorithm2e passer en francauis
+
+acceder à la doc d'un packet : ctan package algorithm2e comprehensive tech archix network doc
+
+
+
+2.1.21 bizarre
+
+preuve de prop 2.5
+
+et apres avoir developé les outils refaire la bonne preuve
+
+
+
+
+
+
+
+
+
+
+
+
