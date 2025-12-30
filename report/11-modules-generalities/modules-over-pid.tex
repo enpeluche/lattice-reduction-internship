@@ -1,0 +1,43 @@
+\section{Modules sur un anneau principal}
+
+Dans la suite, on considère un anneau principal $A$, c’est-à-dire un anneau (commutatif unitaire) dans lequel \emph{tout idéal} est principal.
+
+\begin{theoreme}
+    Soit $M$ un module \textbf{libre} sur un anneau principal $A$. Alors tout sous-module de $M$ est également libre et son rang est inférieur ou égal à celui de $M$.
+\end{theoreme}
+
+\begin{example}
+    Dans le $\Z$-module libre $\Z^2$, considérons le sous-ensemble
+    \[
+        N \;=\; \{(a,b)\in \Z^2 \mid a \equiv b \pmod{10}\}.
+    \]
+    On constate que $N$ est un \textbf{sous-module} de $\Z^2$, et qu’il est engendré par les vecteurs $(1,1)$ et $(0,10)$. Ceux-ci sont $A$-linéairement indépendants, donc $N$ est libre de rang $2$, tout comme $\Z^2$ lui-même.
+\end{example}
+
+\begin{table}[h!]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \textbf{Module $M$}             & \textbf{Anneau $A$} & \textbf{Libre} & \textbf{Type fini} & \textbf{Torsion} & \textbf{Réf.} \\
+        \hline
+        $\K[x]^n$                       & $\K[x]$             & Oui            & Oui                & Non              & (1)           \\
+        $\K[x]/(x^n)$                   & $\K[x]$             & Non            & Oui                & Oui              & (2)           \\
+        $\K[x]^\infty$                  & $\K[x]$             & Oui            & Non                & Non              & (3)           \\
+        $\K(x)$                         & $\K[x]$             & Non            & Non                & Oui              & (4)           \\
+        $(\K[x])^n / (x \cdot \K[x])^n$ & $\K[x]$             & Non            & Oui                & Oui              & (5)           \\
+        \hline
+    \end{tabular}
+    \caption{Exemples de modules sur l’anneau $\K[x]$}
+\end{table}
+
+\vspace{1em}
+\noindent
+\textbf{Commentaires sur les exemples :}
+\begin{enumerate}
+    \item \(\K[x]^n\) est le module libre canonique : c’est un \(\K[x]\)-module libre de rang \(n\). Il sert de modèle aux réseaux polynomiaux.
+    \item \(\K[x]/(x^n)\) est un module de torsion : tout élément est annulé par une puissance de \(x\). Il n’admet pas de base libre.
+    \item \(\K[x]^\infty\) (somme directe infinie) est un module libre, mais non de type fini. Il possède une base infinie indexée par \(\N\).
+    \item \(\K(x)\), le corps des fractions rationnelles, est un module divisible mais non libre. Il contient des éléments sans expression unique comme combinaison de base.
+    \item $(\K[x])^n / (x \cdot \K[x])^n$ est un module quotient, utilisé dans les algorithmes de bases d’ordre modulo $x^\sigma$. C’est un module de torsion.
+\end{enumerate}
