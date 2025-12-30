@@ -1,0 +1,97 @@
+\section{Quelques problèmes algorithmiques liés aux réseaux euclidiens}
+
+Cette section s’inspire largement des travaux de \textcite{Boudgoust2023}, auxquels le lecteur intéressé pourra se référer pour un traitement plus approfondi. On définira deux problèmes algorithmiques important sur les réseaux euclidiens. Il y en a beaucoup plus, \parencite{stephens-davidowitz_latticeproblems} donne un aperçu des réductions entre ces problèmes.
+
+\subsection{Des problèmes faciles}
+
+Certains problèmes liés aux réseaux euclidiens sont relativement simples à résoudre, notamment la vérification de l’appartenance d’un vecteur à un réseau donné, ou encore la décision de l’égalité de deux bases de réseaux. Le lecteur intéressé pourra s’exercer en tentant de résoudre ces problèmes.
+
+\begin{problem}[\textbf{Adhésion}]
+Étant donné une base $B$ d’un réseau $\LL$, et $\bv \in \R^n$, décider si $\bv \in \LL$.
+\end{problem}
+
+\begin{problem}[\textbf{Équivalence}]
+Étant donné deux bases $B$ et $B'$, décider si $\LL (B) = \LL (B')$,
+\end{problem}
+
+\subsection{Le problème du vecteur le plus court}
+
+
+Considérons le problème suivant, paramétré par la dimension $n$ du réseau :
+
+
+\begin{problem}[\textbf{Shortest Vector Problem (SVP)}, \textbf{NP-complet}, \parencite{Ajtai1996}.]
+Étant donné une base $B$ d’un réseau $\LL$, trouver un vecteur $\bv \neq \mathbf{0}$ tel que $\|\bv\|_2 = \lambda_1(\LL)$.
+\end{problem}
+
+On ne connaît que des algorithmes demandant au moins un nombre exponentiel d'opérations pour résoudre ce problème, même en utilisant des algorithmes quantiques. Les algorithmes de type \textbf{énumération} \footnote{ils énumèrent tous les vecteurs du réseau qui sont dans une certaine boule bien choisie, en pratique ils sont utilisés jusqu'aux dimensions $n \approx 80$. On peut leur ajouter des optimisations et des heuristiques.} et les algorithmes de type \textbf{crible} \footnote{on génère deux listes d'éléments du réseau, puis on construit la liste de toutes les différences entre les éléments des deux listes. On espère obtenir des vecteurs plus court. On recommence le procédé. Le temps d'exécution est en $2^{\OO(n)}$.} se démarquent pour ce problème. Le calcul d'un plus court vecteur dans un réseau euclidien de $\R^n$ est en général un problème difficile qui sert de fondation à de nombreuses primitives cryptographiques. On s’intéresse souvent à la version approximative :
+
+
+\begin{problem}[\textbf{SIVP$_\gamma$}, où $\gamma > 0$]
+Étant donné une base $B$ du réseau $\LL$, trouver des vecteur $\bv_1, \ldots \bv_n \neq \mathbf{0}$ linéairement indépendants tel que $\|\bv_i\|_2  \leq \gamma \cdot \lambda_i(\LL)$ pour tout \( i \).
+\end{problem}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.25\textwidth]{images/lattice_0_8.png}
+    \caption{ Une instance de SIVP. }
+    \label{fig:sivp}
+\end{figure}
+
+L’état des connaissances actuelles est le suivant :
+
+\begin{itemize}
+    \item[$\bullet$] Pour $\gamma = \OO(1)$, le problème est prouvé \textbf{NP-complet}, \parencite{Ajtai1996}. %pas d'algo exp ?
+    \item[$\bullet$] Pour $\gamma = \text{poly}(n)$, il existe des algorithmes en \textbf{temps exponentiel}.
+    \item[$\bullet$] Pour $\gamma = 2^{\OO(n)}$, l’algorithme \textbf{LLL} \parencite{Lenstra1982} permet de le résoudre en \textbf{temps polynomial}.
+\end{itemize}
+
+\begin{problem}[\textbf{GapSVP$_\gamma$}, où $\gamma > 0$]
+Étant donné une base $B$ du réseau $\LL$, et $r \in \R_+^*$. Décider si \( \lambda_1(\LL) \leq r \) (instance positive) ou \( \lambda_1(\LL) > \gamma \cdot r \) (instance négative).
+\end{problem}
+
+\begin{theoreme}[\cite{Banaszczyk1993},\cite{stephens-davidowitz_latticeproblems}].
+
+    $\mathrm{SVP}_\gamma$ n'est pas plus simple que $\mathrm{GapSVP}_\gamma$.
+\end{theoreme}
+
+\begin{conjecture}
+    Il n'existe aucun algorithme classique ou quantique en temps polynomial qui approxime les problèmes de réseaux
+    $\mathrm{SVP}_\gamma$, $\mathrm{GapSVP}_\gamma$ ou à un facteur polynomial près $\gamma$ (pour tous les réseaux d'entrée possibles).
+\end{conjecture}
+
+\subsection{Le problème du vecteur le plus proche}
+Un autre problème important concerne la recherche de vecteurs proches d'une cible dans un réseau.
+
+\begin{problem}[\textbf{Closest Vector Problem (CVP)}, \textbf{NP-complet}, \parencite{Ajtai1996}.]
+Étant donnés $t \in \R^n$, un réseau $\LL(B)$, trouver $\bv \in \LL$ tel que
+$$\displaystyle \|t - \bv\|_2  = d(t, \LL) := \min_{ v \in \LL } \{ \|t - \bv\|_2  \}.$$
+\end{problem}
+
+
+Le problème $\mathrm{CVP}$ est en général difficile pour un réseau arbitraire. Cependant, pour certaines familles spécifiques de réseaux, comme $\Z^n$, des algorithmes en temps polynomial sont connus. La qualité de la base choisie joue un rôle crucial dans la résolution du problème. De même, on peut considérer une version approximative :
+
+
+\begin{problem}[\textbf{CVP$_\gamma$}, $\gamma > 0$]
+Étant donnés $t \in \R^n$, un réseau $\LL(B)$, trouver $\bv \in \LL$ tel que
+\(
+\|t - \bv\|_2  \leq \gamma \cdot d(t, \LL).
+\)
+\end{problem}
+
+\begin{problem}[\textbf{GapCVP$_\gamma$}, $\gamma > 0$]
+Étant donné \( r \in \R_+^* \), $t \in \R^n$, un réseau $\LL(B)$.
+Décider si il existe \( \bv \in \LL \) tel que \( \|t - \bv\|_2  \leq r \) (instance positive) ou \( \|t - \bv\|_2  > \gamma \cdot r \) (instance négative)
+\end{problem}
+
+\begin{theoreme}[\cite{Goldreich1999}].
+
+    $\mathrm{GapSVP}_\gamma$ se réduit à $\mathrm{GapCVP}_\gamma$ en temps polynomial.
+\end{theoreme}
+
+
+\begin{theoreme}
+    Il existe un algorithme qui résout \textbf{CVP$_{\exp(n)}$} en temps polynomial via l'algorithme \textbf{LLL}.
+\end{theoreme}
+
+L'efficacité des algorithmes dépend grandement de la qualité de la base du réseau euclidien choisie. Le chapitre sur la réduction abordera des techniques pour améliorer la base, via l'algorithme \textbf{LLL}.\footnote{En dimension fixée, résoudre \textbf{exactement} le problème \textbf{SVP} pour la norme $\|\cdot\|_\infty$ fournit en fait une $\gamma$-approximation (avec $\gamma$ dépendant de la dimension) pour le problème \textbf{SVP} dans la norme $\|\cdot\|_2$. Il existe notamment une constante $C$ telle que $\|v\|_2 \leq C \|v\|_\infty$ pour tout $v \in \R^n$. Ainsi, un vecteur minimisant $\|v\|_\infty$ donne un vecteur $\sqrt{n}$-proche du vecteur réellement le plus court en norme euclidienne.}

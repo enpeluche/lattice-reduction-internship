@@ -1,0 +1,209 @@
+\section{Définitions et exemples}
+\vspace{-0.1cm}
+Nous considérons un espace euclidien, c’est-à-dire un espace vectoriel réel de dimension finie muni d’un produit scalaire, noté $\langle \bf, \bg \rangle$. Dans ce chapitre, nous utiliserons le produit scalaire usuel défini par $\langle \bf, \bg \rangle := \bf \cdot \bg^t = \sum_{i=1}^{n} \bf_i \bg_i$, lequel induit la norme-$2$ donnée par $\|\bf\|_2 = \sqrt{\sum_{i=1}^{n} \bf_i^2}$. Pour alléger les notations, nous omettrons l’indice $2$. Ce chapitre se contentera d’exposer les résultats classiques, sans chercher à les redémontrer. Rappelons qu’au sein de $\R^n$, toutes les normes sont équivalentes, ce qui signifie qu’aucune ne change la nature intrinsèque des problèmes que nous aborderons.  Nous nous concentrerons néanmoins sur la norme-$2$ pour sa simplicité géométrique, car elle offre une mesure intuitive des longueurs et des angles, point essentiel pour étudier la structure des réseaux euclidiens. Afin de simplifier l’écriture, nous désignerons par $\mathcal{B} = (\bb_i)_{1 \leq i \leq n}$ une base de $\R^n$ et par $\mathcal{B}^* = (\bb^*_i)_{1 \leq i \leq n}$ sa base orthogonalisée par le procédé de Gram-Schmidt. Les matrices $B$ et $B^*$ (sans calligraphie) seront composées (en ligne) des vecteurs de la famille $(\bb_i)_{1 \leq i \leq n}$ et $(\bb^*_i)_{1 \leq i \leq n}$ respectivement.
+
+\vspace{0.2cm}
+
+On commence par introduire la notion de réseau euclidien. Pour un rappel sur les groupes ou les modules le lecteur est invité à lire les annexes correspondantes. Le point de vue de module nous sera utile dans la suite de ce manuscrit.
+
+\vspace{-0.2cm}
+
+\begin{definition}
+    Soit $n \in \N^*$, $\bb_1, \ldots, \bb_n \in \R^n$. Les définitions suivantes sont équivalentes.\footnote{Plusieurs définitions équivalentes d’un réseau euclidien coexistent dans la littérature, selon que l’on se place ou non dans un espace euclidien $\R^n$, ou dans un espace $\R^n$ équipé explicitement d’une forme quadratique définie positive. Dans tous les cas, l’idée générale reste la même : un réseau euclidien est un sous-ensemble discret de $\R^n$ formé par toutes les combinaisons linéaires entières d’un ensemble de vecteurs générateurs.}
+    \begin{itemize}
+        \item[$\bullet$] Un \textbf{réseau euclidien} $\LL$ est un sous-groupe discret additif de $\R^n$.
+              \begin{itemize}
+                  \item Sous-groupe additif : $\mathbf{0} \in \LL$, et pour tout $\bx, \by \in \LL$, $\bx + \by, -\bx \in \LL$
+                  \item Discret : $\forall \bx \in \LL, \exists \varepsilon > 0$ tel que $\mathcal{B}(\bx, \varepsilon) \cap \LL = \{\bx\}$ (où $\mathcal{B}(\bx, \varepsilon)$ désigne la boule ouverte de rayon $\varepsilon$ centrée en $\bx$).
+              \end{itemize}
+        \item[$\bullet$] Un \textbf{réseau euclidien} $\LL$ est un $\Z$-module libre de type fini de $\R^n$.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    Un \textbf{sous-réseau} $\LL'$ de $\LL$ est un sous groupe de $\LL$, on notera $\LL' \subseteq \LL$.
+\end{definition}
+
+\begin{example}
+    Les entiers de Gauss, définit par $\Z[i]:= \Z \oplus i \Z$ forment un réseau de rang $2$ dans $\C$, c'est même un anneau.
+\end{example}
+
+\begin{example}
+    Un exemple plus exotique, $\Z \oplus \sqrt{2} \cdot \Z$ est un réseau de rang $2$ dans $\R$.
+\end{example}
+
+\begin{counterexample}
+    $\Q$ n'est pas un réseau euclidien , car $\Q$ est dense dans $\R$, ce qui brise la discrétude, bien que ce soit un sous-groupe de $\R$.
+\end{counterexample}
+
+En particulier on peut montrer qu'il existe une famille $\Z$-libre maximale $(\bb_i)_{1 \leq i \leq m}$ dans $\LL$ telle que
+$$\LL = \bigoplus\limits_{1 \leq i \leq m} \Z \bb_i:=\{a_1\bb_1 + \cdots a_m\bb_m : a_i \in \Z\}$$
+Cette famille est appelée \textbf{base} de $\LL$, si on note $B$ la matrice de la famille $(\bb_i)_{1 \leq i \leq m}$ on notera $\LL(B)$ le réseau de base $B$, donc \textbf{engendré} par la famille $(\bb_i)_{1 \leq i \leq m}$. L'entier $m$ est commun à toutes les bases de $\LL$ et on l'appelle \textbf{rang} de $\LL$. Lorsque $n=m$, on dit que le réseau est de \textbf{rang plein}.
+
+\begin{example}
+    On a la suite d'inclusions $2\Z \subset \Z \subset \frac{1}{2}\Z$. \footnote{On rappelle que pour \( a \in \R \), on a \( a\Z = \{ an \in \R | n \in \Z \} \).} Bien que $\rang(2\Z) = \rang(\Z) = \rang(\frac{1}{2}\Z)$, ces ensembles sont distincts. Cela montre que, contrairement aux espaces vectoriels, avoir une relation d'inclusion et avoir le même rang ne suffit pas à garantir l'égalité des réseaux.
+\end{example}
+
+Existe-t-il une notion de \textbf{bonne} base ? Nous verrons qu'une base idéale est celle qui est en un sens la plus orthogonale possible. Il n'existe pas toujours de base strictement orthogonale, ce qui justifie la notion de quasi-orthogonalité. Nous allons rajouter des façons de mesurer la qualité d'une base dans le chapitre suivant et introduire la notion de réduction, qui consistera à trouver une telle base.
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.25\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/lattice_0_2.png}
+        \caption{$B = \begin{pmatrix}
+                    3 & -1 \\
+                    2 & 0
+                \end{pmatrix}$.}
+    \end{subfigure}
+    \hspace{0.05\textwidth}
+    \begin{subfigure}[b]{0.25\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/lattice_1_2.png}
+        \caption{$B' = \begin{pmatrix}
+                    1 & 1  \\
+                    1 & -1
+                \end{pmatrix}$}
+    \end{subfigure}
+    \caption{Deux bases pour le même réseau de $\R^2$.}
+    \label{fig:bases_lattice}
+\end{figure}
+
+\begin{definition}
+    La \textbf{taille}\footnote{\textbf{taille} et \textbf{volume} sont synonymes, mais l'usage le plus courant dans la littérature anglaise est "déterminant du réseau" ou "volume".} d'un réseau $\LL(B)$ est $|\det(B)|$ et est noté $|\LL|$. La taille d'un réseau est indépendante de la base choisie.
+\end{definition}
+
+
+
+\begin{remark}
+    On peut définir de façon équivalente $|\LL| := \sqrt{ \det( \Gram(B))}$ où $\Gram(B) = B^t \cdot B$. On peut voir $|\LL|$ comme le \textbf{volume du domaine fondamental} de $\left\{ \sum\limits_{i=0}^{n} \lambda_i \bb_i \mid 0 \leq \lambda_i < 1 \right\}.$
+\end{remark}
+\begin{theoreme}[Inégalité d'Hadamard]
+    Soit $B \in M_n(\K)$ et $\LL(B)$ un réseau.
+    Alors
+    $$|\LL|=|\det(B)| \leq \prod_{i=1}^{n} \| \bb_i \|$$
+
+    La borne est atteinte si, et seulement si $(\bb_i)_{1 \leq i \leq n}$ est une famille orthogonale.
+\end{theoreme}
+Toutes les bases d'un réseau euclidien diffèrent d'une transformation de déterminant $\pm 1$. L'ensemble de ces transformations est connu sous le nom de groupe unimodulaire. Un ensemble de points non alignés dans un réseau ne constitue pas une base si son déterminant est différent de $\pm |\LL|$.
+
+\begin{proposition}
+    Soit $\LL$ et $\LL'$ deux réseaux de rang $n$ de base $B$ et $B'$. Alors $\LL$ = $\LL'$ si et seulement si il existe $ U \in \mathrm{GL}_n(\Z)$ tel que $B'=BU$. Où $\mathrm{GL}_n(\Z)= \{M \in \Z^{n \x n} | \det (M) = \pm 1\}$.
+\end{proposition}
+
+\begin{remark}
+    On a l'action de groupe
+    \begin{align*}
+        \mathrm{GL}_n(\Z) \x \mathrm{GL}_n(\R) & \longrightarrow \mathrm{GL}_n(\R) \\
+        (U, \mathbf{B})                        & \longmapsto \mathbf{B}U
+    \end{align*}
+    Un réseau est exactement une orbite de cette action. Nous verrons dans le chapitre suivant que la réduction de réseaux consiste à trouver un bon représentant pour chaque orbite.
+\end{remark}
+
+Nous présentons maintenant deux \textbf{invariants} fondamentaux d'un réseau :
+
+\begin{itemize}
+    \item[$\bullet$] La \textbf{taille du vecteur minimal} du réseau, notée $\lambda_1(\LL)$.
+    \item[$\bullet$] Le \textbf{volume du réseau}, aussi appelé la \textbf{taille du réseau} souvent désigné par $|\LL|$.
+\end{itemize}
+
+
+
+\begin{proposition}
+    Soit $\LL$, $\LL'$  deux réseaux de $\R^n$ tel que $\LL' \subseteq \LL$ alors $\frac{|\LL'|}{|\LL|} \in \N$.
+\end{proposition}
+
+\begin{remark}
+    Ce résultat est une conséquence directe du théorème de Lagrange en théorie des groupes.
+\end{remark}
+
+
+\begin{definition}
+    On appelle \textbf{minimum d'un réseau} \footnote{on peut aussi le définir comme $\lambda_1(\LL) = \min\{r>0 : |\mathcal{B}(r)\cap\LL|>1\} \in \R_+$} $\LL$ la quantité
+    \[
+        \lambda_1(\LL) = \min_{\substack{v \in \LL \\ v \neq 0}} \|v\|\]
+\end{definition}
+
+Plus généralement, pour $k \in \{1, \ldots, n\}$, on pose $\lambda_k(\LL)$ le plus petit réel $r$ tel qu'il existe $k$ vecteurs $\R$-linéairement indépendants dans $\LL$ de norme au plus $r$.
+
+\begin{remark}
+    $\lambda_1(\LL)$ correspond à la distance minimale entre deux points quelconques de $ \LL $.
+\end{remark}
+
+\begin{example}
+    Soit $\LL$ le réseau de la figure ~\ref{fig:bases_lattice}. On a $|\LL| = 2$ et $\lambda_1( \LL) = \lambda_2( \LL) = \sqrt{2}$.
+\end{example}
+
+\begin{theoreme}[Premier théorème de Minkowski]
+    Pour tout $n \in \N^*$, il existe une constante $C_n > 0$ telle que pour tout réseau $\LL$ de $\R^n$, on a :
+
+    \[
+        \lambda_1(\LL) \leq C_n |\LL|^{1/n}
+    \]
+
+
+\end{theoreme}
+On peut prendre cette constante égale à $C_n=(2/\sqrt{\pi}) \Gamma(n/2+1)^{1/n}$. \footnote{La fonction \(\Gamma\), appelée fonction gamma, généralise la notion de factorielle aux nombres réels (et complexes). Elle est définie, pour tout \(z \in \mathbb{C}\), par la formule suivante : \[
+        \Gamma(z) = \int_0^{+\infty} t^{z-1} e^{-t} \, dt.
+    \]}
+On appelle \textbf{constante de Hermite-Minkowski} le carré de la constante optimale possible pour cette inégalité, noté $\gamma _n$, en particulier, on a $\gamma _n \leq C_n$.
+En développant, on a
+\[
+    \gamma_n = \sup_{\dim(\LL) = n} \gamma (\LL) , \quad  \text{ où }\gamma (\LL) := \frac{\lambda _1 (\LL) ^2}{\det (\LL) ^{2/n}}
+\]
+
+\begin{proposition}
+    \[
+        \gamma_n = 4 \left(\frac{ \Delta _n}{V_n}\right)^{2/n} \quad \forall n \in \N^*
+    \]
+    où \( V_n = \frac{\pi ^{n/2}}{\Gamma(\frac{n}{2} + 1)} \) et \( \Delta_n \) est la densité d'un empilement compact \footnote{Un empilement compact d'une collection d'objets est un agencement de ces objets de telle sorte qu'ils occupent le moins d'espace possible.} de densité maximum d'hypersphères.
+\end{proposition} % expliquer c'est quoi un empilement comapct
+
+On ne connaît pas la valeur exacte de \( \gamma_n \) pour tout \( n \). Seuls les valeurs dans le tableau suivant sont connues de manières exactes.\footnote{
+    \textbf{En dimension} $n = 1$, n'importe quel réseau de dimension 1 atteint cette borne.
+    \textbf{En dimension} $n = 2$, le réseau optimal est celui des entiers d’Eisenstein, également appelé réseau en nid d’abeille.
+    \textbf{En dimension} $n = 3$, le réseau optimal est présenté dans \parencite{SP3}, mais sa démonstration  nécessite environ 130 pages de minimisation de fonctions analytiques.
+    Des avancées majeures ont été obtenues pour les \textbf{dimensions} $n = 8$ et $n = 24$ grâce à la mathématicienne ukrainienne Maryna Viazovska, qui a démontré l’optimalité du réseau $E_8$ \parencite{SP8} et, en collaboration, celle du réseau de Leech \parencite{SP24}.
+}
+
+\begin{figure}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        $n$          & $1$ & $2$           & $3$ & $4$ & $5$ & $6$            & $7$  & $8$   & $24$     \\
+        \hline
+        $\gamma_n^n$ & $1$ & $\frac{4}{3}$ & $2$ & $4$ & $8$ & $\frac{64}{3}$ & $64$ & $256$ & $4^{24}$ \\
+        \hline
+    \end{tabular}
+
+    \caption{Valeurs connues de $ \gamma _n$}
+\end{figure}
+
+On sait que \( ( \gamma _n)_n \) est une suite d'ordre de croissance linéaire mais on ne sait pas si elle est croissante.
+
+\begin{example}
+    Le \textbf{réseau d'Eisenstein}, ou \textbf{réseau en nid d'abeille}, est un réseau de \(\R^2\) de rang $2$, engendré par la base
+    \(
+    \begin{pmatrix}
+        1 & \frac{1 + \sqrt{3}}{2} \\
+        1 & \frac{1 - \sqrt{3}}{2}
+    \end{pmatrix} \).
+    On a \(|\LL| = \sqrt{3},  \lambda_1 = \sqrt{2}, \gamma(\LL) = \frac{2}{\sqrt{3}}\).
+    En traçant des sphères de centre les points du réseaux et de rayon \(\sqrt{2}\), on obtient l'empilement compact le plus dense en dimension $2$.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.4]{images/hexagonal_lattice.png}
+        \caption{Empilement hexagonal dans \(\R^2\)}
+    \end{figure}
+\end{example}
+
+\vspace{-1cm}
+
+\begin{proposition}
+    Soit $\LL \subset \R^n$ un réseau de base $(\bb_i)_{1 \leq i \leq n}$ et sa base de Gram-Schmidt associée $(\bb_i^*)_{1 \leq i \leq n}$.
+    Alors pour tout $\bv \in \LL \backslash \{\mathbf{0}\}$, on a $$\lambda_1(\LL) \geq \|\bv\| \geq \min_{1 \le i \le n} \|\bb_i^*\|$$
+
+\end{proposition}
+
+Tous ces résultats et inégalités vont nous donner des critères de mesure de la qualité de réduction d'une base dans le chapitre sur la réduction de réseaux euclidiens.
