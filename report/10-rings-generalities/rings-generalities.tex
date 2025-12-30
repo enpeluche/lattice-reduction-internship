@@ -1,0 +1,90 @@
+\chapter{Rappels sur les anneaux}
+
+\label{appendix:ring}
+
+\begin{tikzpicture}[remember picture, overlay]
+	\node[anchor=north east, xshift=-2.5cm, yshift=-5cm]
+	at (current page.north east)
+	{
+		\includegraphics[width=3cm]{images/logo/ring.jpeg}
+	};
+\end{tikzpicture}
+
+\section{Généralités}
+Ces résultats sont classiques de la théorie des anneaux commutatifs. Pour plus de détails, on pourra se reporter à un manuel standard d’algèbre.
+
+\begin{definition}
+	Un \textbf{anneau} $(A, +, \cdot)$ est un ensemble $A$ muni de deux lois internes :
+	\begin{itemize}
+		\item $(A, +)$ est un \textbf{groupe abélien} (on note $0$ son élément neutre et $-a$ l’inverse de $a$),
+		\item la multiplication $\cdot : A \x A \to A$, notée simplement $ab$, est \textbf{associative} et \textbf{distributive} par rapport à $+$, c’est-à-dire :
+		      \[
+			      a(b + c) = ab + ac,
+			      \quad (b + c)a = ba + ca,
+			      \quad \forall a, b, c \in A,
+		      \]
+		      et possède un \textbf{élément neutre} $1 \in A$ (on dit alors que $A$ est un anneau \textbf{unitaire}).
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	Un anneau $A$ est \textbf{commutatif} si $ab = ba$ pour tout $a, b \in A$.
+\end{definition}
+
+Dans ce mémoire et dans cette annexe, tous les anneaux seront supposés commutatifs par défaut, conformément aux usages standards, sauf indication explicite du contraire.
+
+\begin{definition}
+	Un anneau $A$ est \textbf{intègre} si, pour tout $a, b \in A$, on a
+	\[ab = 0 \quad\Longrightarrow\quad (a=0 \ \text{ou}\ b=0).\]
+\end{definition}
+\begin{remark}
+	Autrement dit, $A$ est intègre si et seulement si il n'a pas de diviseurs de $0$.
+\end{remark}
+
+\begin{definition}
+	Soit $A$ un anneau commutatif. Un \textbf{idéal} $I \subseteq A$ est un sous-groupe additif de $(A, +)$ tel que, pour tout $a \in A$ et tout $x \in I$, on ait
+	\(ax \in I.\)
+\end{definition}
+
+\begin{remark}
+	En commutatif, $ax = xa$, donc une seule condition suffit à le décrire.
+\end{remark}
+
+\begin{definition}
+	Un idéal $I$ de $A$ est dit \textbf{principal} s’il existe un unique $r \in A$ tel que $I = \langle r \rangle = \{ar : a \in A\}$. Un anneau $A$ est \textbf{principal} si tous ses idéaux sont principaux.
+\end{definition}
+
+\begin{definition}
+	Un anneau $A$ est \textbf{noethérien} si toutes ses chaînes d’idéaux (i.e. $I_1 \subseteq I_2 \subseteq \ldots$) sont stationnaires, c’est-à-dire qu’il n’existe pas de chaîne infinie strictement croissante d’idéaux.
+\end{definition}
+
+\begin{remark}
+	Cette définition est équivalente à dire que tout idéal de $A$ est de type fini, i.e. $I = \langle x_1,\dots,x_k\rangle$ pour un nombre fini d’éléments.
+\end{remark}
+
+\begin{definition}[Anneau factoriel]
+	Un anneau intègre $A$ est \textbf{factoriel} si tout élément non nul et non inversible de $A$ admet une factorisation en éléments irréductibles unique à l’ordre près (et inversibles près).
+\end{definition}
+
+Tout \textbf{anneau euclidien} est principal, tout \textbf{anneau principal} est factoriel et tout \textbf{anneau principal} est noethérien.
+
+\begin{table}[h]
+	\centering
+	\caption{Quelques exemples d'anneaux et leurs propriétés}
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline
+		\textbf{Anneau}        & \textbf{Commutatif} & \textbf{Intègre} & \textbf{Principal} & \textbf{Factoriel} & \textbf{Noethérien} \\
+		\hline
+		$\Z$                   & \checkmark          & \checkmark       & \checkmark         & \checkmark         & \checkmark          \\
+		$\Z/n\Z$ (non premier) & \checkmark          & \xmark           & \checkmark         & \xmark             & \checkmark          \\
+		$\Z/p\Z$ ($p$ premier) & \checkmark          & \checkmark       & \checkmark         & \checkmark         & \checkmark          \\
+		$\Z[i]$                & \checkmark          & \checkmark       & \checkmark         & \checkmark         & \checkmark          \\
+		$\Z[\sqrt{-5}]$        & \checkmark          & \checkmark       & \xmark             & \xmark             & \checkmark          \\
+		$\Z \x \Z$             & \checkmark          & \xmark           & \xmark             & \xmark             & \checkmark          \\
+		$M_n(\K)$, $n \geq 2$  & \xmark              & \xmark           & —                  & —                  & \checkmark          \\
+		$C^0([0,1], \R)$       & \checkmark          & \checkmark       & \xmark             & \xmark             & \xmark              \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\input{polynomial-rings}

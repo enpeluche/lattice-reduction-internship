@@ -1,0 +1,37 @@
+\section{Anneaux de polynômes}
+
+Les matrices polynomiales que nous étudierons dans ce mémoire sont construites à partir d’anneaux de polynômes, qui en forment la base algébrique.
+
+\begin{theoreme}
+    Si $A$ est un anneau factoriel, alors $A[x]$ est aussi factoriel.
+
+    Si $A$ est un anneau noethérien, alors $A[x]$ est noethérien.
+
+    Si $A$ est intègre, alors $A[x]$ est intègre.
+\end{theoreme}
+
+\begin{proposition}
+    Soit $\K$ un corps. Alors l’anneau de polynômes $\K[x]$ est \textbf{principal} et l’anneau $\K[x,y]$ \textbf{n’est pas} principal.
+\end{proposition}
+
+\begin{remark}
+    Quand on a deux variables, la structure d’idéaux se complique et ne peut pas être engendrée par un seul polynôme dans la plupart des cas.
+\end{remark}
+
+\begin{table}[h]
+    \centering
+    \caption{Exemples d’anneaux de polynômes et leurs propriétés}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \textbf{Anneau}           & \textbf{Commutatif} & \textbf{Intègre} & \textbf{Principal} & \textbf{Factoriel} & \textbf{Noethérien} \\
+        \hline
+        $\K[x]$                   & \checkmark          & \checkmark       & \checkmark         & \checkmark         & \checkmark          \\
+        $\K[x,y]$                 & \checkmark          & \checkmark       & \xmark             & \checkmark         & \checkmark          \\
+        $\Z[x]$                   & \checkmark          & \checkmark       & \xmark             & \checkmark         & \checkmark          \\
+        $\F_p[x]$                 & \checkmark          & \checkmark       & \checkmark         & \checkmark         & \checkmark          \\
+        $\F_p[x,y]$               & \checkmark          & \checkmark       & \xmark             & \checkmark         & \checkmark          \\
+        $\R[x]/(x^2 + 1)$         & \checkmark          & \checkmark       & \checkmark         & \checkmark         & \checkmark          \\
+        $\K[x]/(x^n)$, $n \geq 2$ & \checkmark          & \xmark           & \checkmark         & \xmark             & \checkmark          \\
+        \hline
+    \end{tabular}
+\end{table}
