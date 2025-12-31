@@ -3,7 +3,7 @@
 \begin{lemma}
     \leavevmode\vspace{0.5\baselineskip}
     \begin{enumerate}
-        \item Soit \( G, G^*, M \in \Q^{n \x n}\) et \( H, H^*, N  \in \Q^{n \x n} \) les matrices des \( \bg_k \), \( g^*_k \), \( \mu_{k,l} \) avant et après \hyperref[step:PP]{\emph{Proprification partielle de $\bg_i$}}. Soit \( E = I_n -\lceil \mu_{i,j} \rfloor E_{i,j} \in \Z^{n \x n} \), où \( E_{i,j}\) désigne la matrice élémentaire.
+        \item Soit \( G, G^*, M \in \Q^{n \x n}\) et \( H, H^*, N  \in \Q^{n \x n} \) les matrices des \( \bg_k \), \( g^*_k \), \( \mu_{k,l} \) avant et après \hyperref[step:P]{\emph{Proprification partielle de $\bg_i$}}. Soit \( E = I_n -\lceil \mu_{i,j} \rfloor E_{i,j} \in \Z^{n \x n} \), où \( E_{i,j}\) désigne la matrice élémentaire.
               % faire une citation de la matrice élémentaire dans l'annexe 
 
               Alors
@@ -11,7 +11,7 @@
                   H = EG \text{, } \quad N = EM \text{, } \quad H^* = G^* .
               \]
 
-        \item Avant \hyperref[step:PP]{\emph{Proprification partielle de $\bg_i$}}, on a :
+        \item Avant \hyperref[step:P]{\emph{Proprification partielle de $\bg_i$}}, on a :
               \[
                   |\mu_{i,l}| \leq \frac{1}{2} \quad \text{pour} \quad j < l < i.
               \]
@@ -21,7 +21,7 @@
 \begin{proof}
     \begin{enumerate}
         \item \begin{itemize}[label=\textbullet]
-                  \item \hyperref[step:PP]{\emph{Proprification partielle de $\bg_i$}} se traduit matriciellement par \( H = EG \).
+                  \item \hyperref[step:P]{\emph{Proprification partielle de $\bg_i$}} se traduit matriciellement par \( H = EG \).
 
                   \item La nouvelle famille est
                         \[
@@ -68,7 +68,7 @@
 
 \begin{smallalgo}{Proprification de \( \bg_{i} \)}{step:P}
     \For{$j = i{-}1, i{-}2, \dots, 1$}{
-        \hyperref[step:PP]{\emph{Proprification partielle de \( \bg_i \)}}\;
+        \hyperref[step:P]{\emph{Proprification partielle de \( \bg_i \)}}\;
     }
 \end{smallalgo}
 

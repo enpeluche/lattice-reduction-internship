@@ -19,9 +19,9 @@ La difficulté est de montrer que la boucle Tant que ne va pas s'exécuter indé
 
 \begin{proof}
     \begin{enumerate}
-        \item Il faut utiliser le théorème~\ref{thm:complexite-GSO}
+        \item Il faut utiliser le théorème sur la complexité de l'algorithme de Gram-Schmidt.
 
-        \item Une exécution de \hyperref[step:PP]{\emph{Proprification partielle de \( \bg_i \)}} revient à faire les multiplications \( H=EG \) et \( N=EM \) se font en \( \OO(n) \) étapes, ainsi une exécution de \hyperref[step:P]{\emph{Proprification de \( \bg_i \)}} nécessite \( \OO(n^2) \) opérations dans \( \Z \).
+        \item Une exécution de \hyperref[step:P]{\emph{Proprification partielle de \( \bg_i \)}} revient à faire les multiplications \( H=EG \) et \( N=EM \) se font en \( \OO(n) \) étapes, ainsi une exécution de \hyperref[step:P]{\emph{Proprification de \( \bg_i \)}} nécessite \( \OO(n^2) \) opérations dans \( \Z \).
 
         \item Si un échange a lieu à \hyperref[step:R]{\emph{Réduction de $\bg_{i-1}, \bg_{i}$}}, alors seuls \( g^*_{i-1} \), \( g^*_i \), ainsi que les lignes et colonnes \( i-1 \) et \( i \) de la matrice de transition \( M \) sont modifiés, et ces éléments peuvent être mis à jour en \( O(n) \) opérations.
     \end{enumerate}
@@ -259,7 +259,7 @@ On a d'après les lemmes \( \max \left\{ \|\bg_k^*\| : 1 \leq k \leq n \right\} 
                   \|\bg_k\| \leq \sqrt{n} A.
               \]
 
-        \item À chaque exécution de l’étape \hyperref[step:PP]{\emph{Proprification partielle de \( \bg_i \)}}, on a :
+        \item À chaque exécution de l’étape \hyperref[step:P]{\emph{Proprification partielle de \( \bg_i \)}}, on a :
               \[
                   \|\bg_i\| \leq n(2A)^n.
               \]
@@ -268,7 +268,7 @@ On a d'après les lemmes \( \max \left\{ \|\bg_k^*\| : 1 \leq k \leq n \right\} 
 
 \begin{proof}
     \begin{enumerate}
-        \item Initialement \( \|\bg_k\| \leq A \) pour tout \( k \). L'étape \hyperref[step:P]{\emph{Réduction de \( \bg_{i-1}, \bg_{i} \)}} ne modifie pas \( \|\bg_k\| \), il suffit donc d'examiner  l'étape \hyperref[step:P]{\emph{Proprification de \( \bg_i \)}}. On a que \( \bg_k \), pour \( k \neq i \), n'est pas affecté par l'étape  \hyperref[step:PP]{\emph{Proprification partielle de \( \bg_i \)}}.
+        \item Initialement \( \|\bg_k\| \leq A \) pour tout \( k \). L'étape \hyperref[step:P]{\emph{Réduction de \( \bg_{i-1}, \bg_{i} \)}} ne modifie pas \( \|\bg_k\| \), il suffit donc d'examiner  l'étape \hyperref[step:P]{\emph{Proprification de \( \bg_i \)}}. On a que \( \bg_k \), pour \( k \neq i \), n'est pas affecté par l'étape  \hyperref[step:P]{\emph{Proprification partielle de \( \bg_i \)}}.
 
               Soit \( m_i = \max \{ |\mu_{i,l}| : 1 \leq l \leq i \} \). À partir de
               \[
@@ -292,7 +292,7 @@ On a d'après les lemmes \( \max \left\{ \|\bg_k^*\| : 1 \leq k \leq n \right\} 
                   \end{aligned}
               \]
 
-              Considérons maintenant le remplacement effectué à l'étape  \hyperref[step:PP]{\emph{Proprification partielle de \( \bg_i \)}}. Comme \( m_i \geq 1 \) et que \( |\mu_{j,l}| \leq \tfrac{1}{2} \) pour \( 1 \leq l < j \), le lemme 2.8 donne :
+              Considérons maintenant le remplacement effectué à l'étape  \hyperref[step:P]{\emph{Proprification partielle de \( \bg_i \)}}. Comme \( m_i \geq 1 \) et que \( |\mu_{j,l}| \leq \tfrac{1}{2} \) pour \( 1 \leq l < j \), le lemme 2.8 donne :
               \[
                   \begin{aligned}
                       |\mu_{i,l} - \lfloor \mu_{i,j} \rceil \mu_{j,l}|

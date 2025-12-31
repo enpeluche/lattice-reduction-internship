@@ -117,7 +117,9 @@ Maintenant que l'on connaît la définition d'une base réduite et un critère p
     On note les pivots en rouge. $W_1$ n'est pas en forme de Popov faible car les pivots sont sur la même colonne, et $W_2$ est en forme Popov faible , car les pivots, ont des indices de colonnes distincts.
 \end{example}
 
-Pour transformer une matrice en forme Popov faible, on peut utiliser l'algorithme proposé dans \parencite{Mulders2003}, qui fournit une méthode systématique pour y parvenir en appliquant des transformations unimodulaires par lignes.
+Pour transformer une matrice en forme Popov faible, on peut utiliser l'algorithme proposé dans
+
+\parencite{Mulders2003}, qui fournit une méthode systématique pour y parvenir en appliquant des transformations unimodulaires par lignes.
 
 \begin{definition}
     On appelle \textbf{transformation simple} de la ligne \(k\) sur la ligne \(l\) l'opération consistant à soustraire \(c x^e\) fois la ligne \(k\) à la ligne \(l\), où \(c \in \F\) et \(e \in \mathbb{N}\). On dit qu'elle est du \textbf{premier type} si les pivots de la ligne \( k \) et de la ligne \( l \) ont les mêmes indices et du \textbf{deuxième type} sinon.
