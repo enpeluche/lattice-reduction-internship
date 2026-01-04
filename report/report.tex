@@ -1,140 +1,83 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                                                                                                                                             %
-%                                                            ▗▄▄▖ ▗▄▄▄▖▗▄▄▖  ▗▄▖ ▗▄▄▖▗▄▄▄▖                                                                    %
-%                                                            ▐▌ ▐▌▐▌   ▐▌ ▐▌▐▌ ▐▌▐▌ ▐▌ █                                                                      %
-%                                                            ▐▛▀▚▖▐▛▀▀▘▐▛▀▘ ▐▌ ▐▌▐▛▀▚▖ █                                                                      %
-%                                                            ▐▌ ▐▌▐▙▄▄▖▐▌   ▝▚▄▞▘▐▌ ▐▌ █                                                                      %
-%                                                                                                                                                             %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                                                                                                                                             %
-% Auteur :          Lucas Noirot                                                                                                                              %
-% Éditeur utilisé : TeXstudio                                                                                                                                 %
-% Compilateur :     pdfLaTeX (dernière version au moment de la rédaction)                                                                                     %
-%                                                                                                                                                             %
-% Ce document est libre de droit. Toute personne est libre de l'utiliser, le modifier ou le redistribuer, sans restriction.                                   %
-% Licence : Creative Commons CC0 – https://creativecommons.org/publicdomain/zero/1.0/                                                                         %
-%                                                                                                                                                             %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                                                                                                                                             %
-% Les sous-fichiers sont :                                                                                                                                    %
-%                                                                                                                                                             %
-% preamble.tex                     cover_page.tex                           acknowledgement.tex                            notations_complexity_acronyms.tex  %
-%                                                                                                                                                             %
-% introduction.tex                 conclusion_and_future_work.tex           polynomial_lattice_reduction_integer_case.tex                                     %
-%                                                                                                                                                             %
-% lattice_basics.tex               lattice_reduction.tex                    polynomial_lattice_reduction.tex               readin\bg_guide.tex                  %
-%                                                                                                                                                             %
-% euclidean_lattice_reduction.tex  lattices_by_relations_not_generator.tex  appendix.tex                                                                      %
-%                                                                                                                                                             %
-% Pas de fichier parent                                                                                                                                       %
-%                                                                                                                                                             %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                                                                                                                                             %
 \documentclass[a4paper,12pt]{report}  % Déclare un document de type "report" (idéal pour les rapports longs)                                                  %
 %                                     % a4paper : Définit le format du papier en A4 (210 × 297 mm)                                                            %
 %                                     % 12pt : Définit la taille de police principale à 12 points (standard pour les rapports)                                %
-%                                                                                                                                                             %
+
 \input{preamble}                                                                                                                                              %
-%                                                                                                                                                             %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                                                                                                                                             %
-\titleformat                                                                                                                                                  %
-{\chapter}                                                                                                                                          % command %
-[display]                                                                                                                                             % shape %
-{\Large}                                                                                                                                             % format %
+
+% en faire une commande
+\titleformat%
+{\chapter}% command %
+[display]% shape %
+{\Large}% format %
 {                                                                                                                                                             %
 	\rule{\widthof{CHAPITRE}}{0.6pt}\vspace{-0.3cm}\\                                                                                                         %
 	\makebox[0pt][l]{CHAPITRE \Huge\textbf{\thechapter}}\vspace{-0.6cm} \\                                                                                    %
 	\rule{\widthof{CHAPITRE \Huge\textbf{\thechapter}}}{0.6pt}                                                                                                %
-}                                                                                                                                                     % label %
-{1ex}                                                                                                                                                   % sep %
+}% label %
+{1ex}% sep %
 {\huge\textit }                                                                                                                                               %
-[                                                                                                                                                             %
-]                                                                                                                                                % after-code %
-%                                                                                                                                                             %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                                                                                                                                             %
-\begin{document}                                                                                                                                              %
-%                                                                                                                                                             %
+[%
+]% after-code %
+%%                                                                                                                                                             %
+\begin{document}
 \pagenumbering{gobble} % désactive la numérotation
 
+\input{titlepage/titlepage} % Page de couverture (non numérotée, hors table des matières)
+\input{acknowledgements/acknowledgements} % Remerciements (non numérotée, hors table des matières)
 
-\include{cover_page}                                     % Page de couverture (non numérotée, hors table des matières)                                        %
-%                                                                                                                                                             %
-\include{acknowledgements}                               % Remerciements (non numérotée, hors table des matières)                                             %
-%                                                                                                                                                             %
-\tableofcontents                                         % Table des matières                                                                                 %
-%                                                                                                                                                             %
+\tableofcontents % Table des matières
+
 \listofalgorithms
 \addcontentsline{toc}{chapter}{Liste des algorithmes}
 
 \listoffigures
 \addcontentsline{toc}{chapter}{Table des figures}
 
-%                                                                                                                                                             %
-\include{notations_complexity_acronyms}                  % Notations, complexité, acronymes — pose les conventions du mémoire                                 %
+\input{notations_complexity_acronyms/notations_complexity_acronyms} % Notations, complexité, acronymes - pose les conventions du mémoire
 
-\include{reading_guide}                                  % Guide de lecture — explication du plan, structure, conseils pour le lecteur                        %
+\input{reading_guide/reading_guide} % Guide de lecture - explication du plan, structure, conseils pour le lecteur
 
-\chapter*{Déroulé du stage et motivations}
-\addcontentsline{toc}{chapter}{Déroulé du stage et motivations}
+\input{motivation/motivation}
 
-Ce stage de Master 2 s’est déroulé au sein de l’équipe \textsc{ECO} (Exact COmputing) du LIRMM, à l’Université de Montpellier. Il s’inscrit dans le cadre d’un stage académique en informatique théorique, axé sur l’étude de la réduction de réseaux euclidiens, un sujet en calcul formel et en cryptographie.
-
-L’ensemble du code développé durant le stage est disponible à l’adresse suivante : \texttt{[lien vers dépôt/code]}.
-
-\section*{Objectifs et déroulé du stage}
-
-L’objectif principal du stage était d'essayer d'apater des techniques de réductions de réseaux euclidiens avec des techniques issues du monde polynomiale, en s’appuyant à la fois sur les fondements théoriques et sur des expérimentations.
-
-\begin{itemize}
-    \item[\( \bullet \)] \textbf{Phase 1: Compréhension des réseaux euclidiens et de l’algorithme LLL} \\
-    Le début du stage a été consacré à l’étude approfondie de l’algorithme de Lenstra–Lenstra–Lovász (LLL), de sa preuve de correction ainsi que de la bibliographie associée sur les réseaux euclidiens. Implémentation de LLL en SageMath. Cette étape a également permis de préparer la rédaction du rapport intermédiaire.
-    
-    \item[\( \bullet \)] \textbf{Phase 2: Compréhension des réseaux polynomiaux et algorithmes de réduction} \\
-    Dans un second temps, le travail s’est tourné vers le cas des réseaux polynomiaux : lecture de la littérature, compréhension des algorithmes (\textsc{basis}, \textsc{PM-basis}), et mise en perspective avec le cas euclidien. Implémentation dans SageMath.
-    
-    \item[\( \bullet \)] \textbf{Phase 3: Rapport intermédiaire et retour encadrant} \\
-    La remise du rapport intermédiaire a permis de faire le point sur les avancées, de mieux cadrer le positionnement du stage, et de structurer l’état de l’art.
-    
-    \item[\( \bullet \)] \textbf{Phase 4: Réflexions d’adaptation au cas entier} \\
-    Durant la seconde moitié du stage, des pistes d’adaptation d’algorithmes issus du cas polynomial ont été explorées pour les réseaux entiers.
-\end{itemize}
-
-\section*{Participation à la vie du laboratoire}
-
-Durant le stage, j’ai également eu l’occasion de m’impliquer dans l’environnement de recherche local :
-\begin{itemize}
-    \item[\( \bullet \)] Présentation d’un exposé de 1h30 (en anglais) sur l’algorithme LLL et sa preuve lors du \textit{Lattice Club}, un séminaire interne dédié aux réseaux.
-    \item[\( \bullet \)] Participation hebdomadaire aux séances du Lattice Club, animées notamment par Katarina et d’autres intervenants, où différents aspects de la cryptographie à base de réseaux ont été abordés.
-    \item[\( \bullet \)] Présence régulière aux séminaires du laboratoire organisés les mardis.
-\end{itemize}
-
-
-
-\include{introduction}                                   % Introduction générale (non numérotée)                                                              %
-%                                                                                                                                                             %
-
-
+\input{0-introduction/introduction} % Introduction générale (non numérotée)
 
 \pagenumbering{arabic}
-%                                                                                                                                                             %
 
-\input{lattice_basics}                                   % Chapitre 1 : Bases sur les réseaux euclidiens et polynomiaux (rappels, définitions fondamentales)  %
+\input{1-euclidean-lattices/euclidean-lattices}
 
-%                                                                                                                                                             %
-\input{lattice_reduction}                                % Chapitre 2 : Réduction de réseaux euclidiens et polynomiaux                                        %
-%                                                                                                                                                             %
-\input{polynomial_lattice_reduction_integer_case}        % Chapitre 3 : Adaptation de la réduction de réseaux polynomiaux au cas entier                       %
-%                                                                                                                                                             %
-\input{lattices_by_relations_not_generators}             % chapitre 4 : Réseaux définis par relations plutôt que par générateurs                              %
-%                                                                                                                                                             %
-\input{conclusion_and_future_work}                       % Conclusion et perspectives                                                                         %
-%                                                                                                                                                             %
-\include{appendix}                                       % Annexes — démonstrations, rappels supplémentaires                                                  %
-%                                                                                                                                                             %
-\printbibliography                                       % Bibliographie (gérée avec biblatex + biber)                                                        %
-%                                                                                                                                                             %
+\input{2-euclidean-lattice-reduction/euclidean-lattice-reduction}
+
+\input{3-lll-correction-termination-complexity/lll-correction-termination-complexity}
+
+\input{4-state-of-the-art-lattice-reduction/state-of-the-art-lattice-reduction}
+
+\input{5-polynomial-lattices/polynomial-lattices}
+
+\input{6-polynomial-lattice-reduction/polynomial-lattice-reduction.tex}
+
+\input{7-adapting-polynomial-reduction-to-euclidean/adapting-polynomial-reduction-to-euclidean.tex}
+
+\input{8-conclusion/conclusion}
+
+\appendix                                                                                                                     % on commence la section annexe %
+
+\titleformat                                                                                                                                                  %
+{\chapter}                                                                                                                                          % command %
+[display]                                                                                                                                             % shape %
+{\Large}                                                                                                                                             % format %
+{                                                                                                                                                             %
+      \rule{\widthof{ANNEXE}}{0.6pt}\vspace{-0.3cm}\\                                                                                                           %
+      \makebox[0pt][l]{ANNEXE \Huge\textbf{\thechapter}}\vspace{-0.6cm} \\                                                                                      %
+      \rule{\widthof{ANNEXE \Huge\textbf{\thechapter}}}{0.6pt}                                                                                                  %
+}                                                                                                                                                     % label %
+{1ex}                                                                                                                                                   % sep %
+{\huge\textit }                                                                                                                                               % 
+[                                                                                                                                                             %
+]                                                                                                                                                % after-code %
+
+\input{9-lll-proof-details/lll-proof-details}
+\input{10-rings-generalities/rings-generalities}
+\input{11-modules-generalities/modules-generalities}
+%\printbibliography     % Bibliographie (gérée avec biblatex + biber)          
+
 \end{document}                                                                                                                                                %
-%                                                                                                                                                             %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
