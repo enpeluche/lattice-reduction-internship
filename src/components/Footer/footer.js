@@ -2,9 +2,9 @@ const ICONS = {
   PREVIOUS: `<svg class="flip-horizontal" viewBox="0 0 24 24"> <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path> </svg>`,
   NEXT: `<svg viewBox="0 0 24 24"> <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path> </svg>`,
 };
-
+import { APP_ROOT } from "../../main.js";
 async function fetchTOC() {
-  const paths = ["/src/data/toc.json"];
+  const paths = [`${APP_ROOT}src/data/toc.json`];
   for (const path of paths) {
     try {
       const res = await fetch(path);

@@ -1,5 +1,6 @@
+import { APP_ROOT } from "../../main.js";
 async function fetchNews() {
-  const paths = ["/src/data/news.json"];
+  const paths = [`${APP_ROOT}src/data/news.json`];
   for (const path of paths) {
     try {
       const res = await fetch(path);
