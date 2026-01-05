@@ -1,10 +1,10 @@
 @import url("https://rsms.me/inter/inter.css");
 
-@import "/src/components/TableOfContents/TableOfContents.css";
-@import "/src/components/News/News.css";
-@import "/src/components/Project/Project.css";
-@import "/src/components/Course/Course.css";
-@import "/src/components/Footer/footer.css";
+@import "./src/components/TableOfContents/TableOfContents.css";
+@import "./src/components/News/News.css";
+@import "./src/components/Project/Project.css";
+@import "./src/components/Course/Course.css";
+@import "./src/components/Footer/footer.css";
 @import "root.css";
 @import "reset.css";
 @import "header.css";
