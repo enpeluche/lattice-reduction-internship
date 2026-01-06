@@ -85,7 +85,7 @@
     "title": "Réduction de réseaux polynomiaux",
     "type": "chapter",
     "isNumbered": true,
-    "path": "report/6-polynomial-repolattice-reductionrt/",
+    "path": "report/6-polynomial-lattice-reduction/",
     "children": [
       {
         "title": "Généralités et notion de base d’ordre",
