@@ -22,7 +22,7 @@
     <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
 
     <!------ RENDER KATEX ------>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <script defer
@@ -64,6 +64,7 @@
             <div class="paragraph">
                 Soit \( F \in \mathbb{F}[x]^{m \times n},\) et un <strong>degré de précision</strong> \( \sigma \in \N
                 \).
+
                 On définit
                 \[
                 (F, \sigma):= \{v \in \mathbb{F}[x]^{1 \times m} ~|~ vF = 0 \mod x^\sigma\}
@@ -80,8 +81,7 @@
 
             <div class="definition">
                 Une \( (F, \sigma) \)-<strong>base d'ordre</strong> est une base \footnote{au sens des \( \mathbb{F}[x]
-                \)-modules}
-                de \( (F, \sigma) \) de degré minimale.
+                \)-modules} de \( (F, \sigma) \) de degré minimale.
             </div>
 
             <div class="paragraph">
@@ -227,15 +227,13 @@
                 \end{pmatrix}
                 \]
                 On note les pivots en rouge. $W_1$ n'est pas en forme de Popov faible car les pivots sont sur la même
-                colonne,
-                et $W_2$ est en forme Popov faible, car les pivots, ont des indices de colonnes distincts.
+                colonne, et $W_2$ est en forme Popov faible, car les pivots, ont des indices de colonnes distincts.
             </div>
 
             <div class="paragraph">
                 Pour transformer une matrice en forme Popov faible, on peut utiliser l'algorithme proposé dans <br>
-                <a href="" class="ref-mulders-2003"></a>
-                , qui fournit une méthode systématique pour y parvenir en appliquant des transformations unimodulaires
-                par lignes.
+                <a href="" class="ref-mulders-2003"></a> , qui fournit une méthode systématique pour y parvenir en
+                appliquant des transformations unimodulaires par lignes.
             </div>
 
             <div class="definition">
@@ -327,10 +325,7 @@
                     Toute matrice en <strong>forme Popov faible</strong> est réduite par ligne.
                 </p>
             </div>
-
-
         </div>
-
     </main>
 
     <footer id="main-footer"></footer>

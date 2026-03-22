@@ -22,7 +22,7 @@
     <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
 
     <!------ RENDER KATEX ------>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <script defer
@@ -100,13 +100,17 @@
 
             <div class="paragraph">
                 Mais \( \mathbf{b}_1^* = \mathbf{b}_1 \in \mathscr{L} \), en prenant \( k \in \Z \), on a
+
                 \(
                 \mathbf{b}_2 - k \mathbf{b}_1 \in \mathscr{L}
                 \),
+
                 on pourrait donc réaliser l'opération
+
                 \[
                 \mathbf{b}_2 \coloneqq \mathbf{b}_2 - k \mathbf{b}_1 \in \mathscr{L}
                 \]
+
                 On peut donc choisir \( k \in \Z \) qui minimise \( \left \langle b_2, b_1 \right \rangle \), ce qui est
                 réalisé par \( k \coloneqq \lceil \mu_{i,j} \rfloor \). On en déduit donc l'opération
 
@@ -246,16 +250,18 @@
                     <div class="paragraph">
                         En particulier, ce résultat s’applique à un vecteur \( v \in \mathscr{L} \) de plus petite norme
                         non nulle, c’est-à-dire un vecteur atteignant \( \lambda_1(\mathscr{L}) \). On en déduit donc :
+
                         \[
                         \|b_1\| \leq 2^{(n-1)/2} \cdot \lambda_1(\mathscr{L}),
                         \]
+
                         ce qui montre que \( \mathrm{LLL} \) fournit en temps polynomial un vecteur de norme à un
-                        facteur \( 2^{(n-1)/2} \) près du plus court vecteur du réseau.
-                        Autrement dit, l’algorithme \( \mathrm{LLL} \) résout approximativement le problème du plus
-                        court vecteur (\( \mathrm{SVP} \)) avec un facteur d’approximation \( \gamma = 2^{(n-1)/2} \).
-                        Par extension, en renvoyant les vecteurs de la base réduite, \( \mathrm{LLL} \) permet également
-                        de résoudre le problème \( \mathrm{SIVP} \) ( <strong> Shortest Independent Vectors Problem
-                        </strong>) avec le même facteur d’approximation.
+                        facteur \( 2^{(n-1)/2} \) près du plus court vecteur du réseau. Autrement dit, l’algorithme \(
+                        \mathrm{LLL} \) résout approximativement le problème du plus court vecteur (\( \mathrm{SVP} \))
+                        avec un facteur d’approximation \( \gamma = 2^{(n-1)/2} \). Par extension, en renvoyant les
+                        vecteurs de la base réduite, \( \mathrm{LLL} \) permet également de résoudre le problème \(
+                        \mathrm{SIVP} \) ( <strong> Shortest Independent Vectors Problem </strong>) avec le même facteur
+                        d’approximation.
                     </div>
             </div>
     </main>

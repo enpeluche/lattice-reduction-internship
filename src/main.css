@@ -1,5 +1,6 @@
 @import url("https://rsms.me/inter/inter.css");
 
+@import url("https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css");
 @import url("https://cdn.jsdelivr.net/gh/enpeluche/enpeluche.github.io@main/shared-assets/reader/algorithm.css");
 @import url("https://cdn.jsdelivr.net/gh/enpeluche/enpeluche.github.io@main/shared-assets/reader/course.css");
 @import url("https://cdn.jsdelivr.net/gh/enpeluche/enpeluche.github.io@main/shared-assets/reader/figure.css");

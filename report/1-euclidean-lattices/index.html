@@ -22,7 +22,7 @@
     <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
 
     <!------ RENDER KATEX ------>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <script defer
@@ -64,8 +64,7 @@
 
             <div class="paragraph">
                 L'étude des <strong>réseaux euclidiens</strong> puise ses racines dans les travaux mathématiques du
-                <time datetime="17XX">XVIIIe</time> siècle,
-                notamment ceux de
+                <time datetime="17XX">XVIIIe</time> siècle, notamment ceux de
                 <strong><a title="Voir la page wikipedia de Euler !" target="_blank"
                         href="https://fr.wikipedia.org/wiki/Leonhard_Euler">Leonhard Euler</a> </strong>
                 sur l'organisation géométrique des points dans l'espace. C'est cependant en <time
@@ -74,10 +73,9 @@
                 <strong><a title="Voir la page wikipedia de Minkowski !" target="_blank"
                         href="https://fr.wikipedia.org/wiki/Hermann_Minkowski">Hermann Minkowski</a> </strong>
                 établit véritablement les fondements modernes avec l'introduction de la théorie géométrique des nombres,
-                reliant explicitement
-                les réseaux à divers problèmes d'<strong>optimisation</strong> et de <strong>minimisation</strong>.
-                Ses résultats joueront ultérieurement un rôle déterminant dans le développement de la
-                <strong>cryptographie moderne</strong>.
+                reliant explicitement les réseaux à divers problèmes d'<strong>optimisation</strong> et de
+                <strong>minimisation</strong>. Ses résultats joueront ultérieurement un rôle déterminant dans le
+                développement de la <strong>cryptographie moderne</strong>.
             </div>
 
             <div class="paragraph">
@@ -95,42 +93,17 @@
                         href="https://fr.wikipedia.org/wiki/Bernard_Dwork">Dwork</a> </strong> ou
                 <strong><a title="Voir la page wikipedia de Regev !" target="_blank"
                         href="https://fr.wikipedia.org/wiki/Oded_Regev">Regev</a> </strong>
-                marquent alors un tournant décisif,
-                en démontrant que les difficultés algorithmiques intrinsèques aux réseaux peuvent constituer une base
-                solide pour la
-                conception de nouveaux systèmes cryptographiques résistants aux attaques
-                <strong>conventionnelles</strong> et
-                <strong>quantiques</strong>. Ce chapitre vise précisément à introduire de manière approfondie les
-                concepts fondamentaux liés
-                aux réseaux euclidiens.
+                marquent alors un tournant décisif, en démontrant que les difficultés algorithmiques intrinsèques aux
+                réseaux peuvent constituer une base solide pour la conception de nouveaux systèmes cryptographiques
+                résistants aux attaques <strong>conventionnelles</strong> et <strong>quantiques</strong>. Ce chapitre
+                vise précisément à introduire de manière approfondie les concepts fondamentaux liés aux réseaux
+                euclidiens.
             </div>
         </div>
     </main>
 
     <footer id="main-footer"></footer>
 
-    <script>
-        function calculer80vh() {
-            // 1. Récupère la hauteur actuelle de la fenêtre d'affichage (viewport) en pixels.
-            const hauteurViewport = window.innerHeight;
-
-            // 2. Calcule 80% de cette hauteur.
-            const valeur80vh = (hauteurViewport * 80) / 100;
-
-            return valeur80vh;
-        }
-
-        const hauteurPixels = calculer80vh();
-
-        console.log(`La hauteur actuelle de 80vh est de ${hauteurPixels}px`);
-
-        const monElement = document.getElementById('article');
-
-        // Récupère la hauteur totale de l'élément en pixels (avec padding et bordures)
-        const hauteurTotale = monElement.offsetHeight;
-
-        console.log(`La hauteur totale (offsetHeight) est : ${hauteurTotale}px`);
-    </script>
     <script type="module" src="../../src/main.js"></script>
 </body>
 

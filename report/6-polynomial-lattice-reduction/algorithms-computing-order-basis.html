@@ -22,7 +22,7 @@
     <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
 
     <!------ RENDER KATEX ------>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <script defer
@@ -182,10 +182,8 @@
 
             <div class="paragraph">
                 L'algorithme Basis calcul correctement une base d'ordre de \( (F, 1) \) d'après la construction
-                ci-dessus,
-                l'hypothèse que \( s \) est croissant est primordiale pour obtenir une base d'ordre. On ne cherchera pas
-                à
-                redémontrer ce résultat.
+                ci-dessus, l'hypothèse que \( s \) est croissant est primordiale pour obtenir une base d'ordre. On ne
+                cherchera pas à redémontrer ce résultat.
             </div>
 
             <h3>Algorithmes pour le cas général</h3>
@@ -216,122 +214,127 @@
             <div class="algorithm">
                 <h2>M-Basis</h2>
                 <div class="meta">
-                    <div class="in"> \( F \in (\mathbb{F}[x]_{<\sigma})^{m \times n} \), un vecteur de décalage \(
-                            \vec{s} \), \( \sigma \in \mathbb{N} \)</div>
-                            <div class="out"> Une \( (F, \sigma, \vec{s}) \)-base d’ordre et son degré de ligne \(
-                                \vec{s} \)</div>
+                    <div class="in"> \( F \in (\mathbb{F}[x]_{\lt \sigma})^{m \times n} \), un vecteur de décalage \(
+                        \vec{s} \), \( \sigma \in \mathbb{N} \)
                     </div>
+                    <div class="out">
+                        Une \( (F, \sigma, \vec{s}) \)-base d’ordre et son degré de ligne \(\vec{s} \)
+                    </div>
+                </div>
 
 
-                    \( P_0 \gets Basis(F \bmod x) \)
+                \( P_0 \gets Basis(F \bmod x) \)
 
-                    <div class="for">
-                        \( k \) de \( 1 \) à \( \sigma - 1 \)
+                <div class="for">
+                    \( k \) de \( 1 \) à \( \sigma - 1 \)
+                    <div class="c">
+                        \( F' \gets x^{-k} P_{k-1} F \) <span class="comment">Décalage du problème</span> <br>
+                        \( M_k \gets Basis(F' \bmod x) \) <br>
+                        \( P_k \gets M_k P_{k-1} \) <br>
+                    </div>
+                </div>
+
+                <div class="return">
+                    \( P_{\sigma -1} \)
+                </div>
+            </div>
+
+            <div class="theorem">
+                <p>
+                    La complexité de l'algorithme Basis est \( \mathcal{O} (m^\omega \sigma^2) \) opérations dans le
+                    corps de base.
+                </p>
+            </div>
+
+            <div class="remark">
+                <ul>
+                    <li class="nowrap">
+                        On peut réaliser la ligne 4 en \( \mathcal{O} (m^\omega \sigma)\), la ligne 5 est en \(
+                        \mathcal{O} (m^\omega) \) car les coefficients sont entiers.
+                    </li>
+                    <li>
+                        Il faut voir la ligne 3 comme un décalage.
+                    </li>
+                    <li>
+                        On se sert du théorème 5.3 pour prouver la correction de l'algorithme.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="paragraph">
+                On présente maintenant un algorithme sur le principe diviser-pour-régner
+                <strong>quasi-linéaire</strong> qui découpe la précision en \(2\).
+                \[
+                (F, 1) \rightarrow (F, 2) \rightarrow (F, 4) \rightarrow \cdots \rightarrow \left(F,
+                \frac{\sigma}{2}\right) \rightarrow (F, \sigma)
+                \]
+            </div>
+
+            <div class="algorithm">
+                <h2>PM-Basis</h2>
+
+                <div class="meta">
+                    <div class="in">
+                        \( F \in (\mathbb{F}[x]_{\lt\sigma})^{m \times n} \), un vecteur de décalage \(\vec{s} \), \(
+                        \sigma \in \mathbb{N} \)
+                    </div>
+                    <div class="out">
+                        Une \( (F, \sigma, \vec{s}) \)-base d’ordre et son degré de ligne \(
+                        \vec{s} \)
+                    </div>
+                </div>
+
+                <div class="conditional">
+                    <div class="if">
+                        \( \sigma = 1 \)
                         <div class="c">
-                            \( F' \gets x^{-k} P_{k-1} F \) <span class="comment">Décalage du problème</span> <br>
-                            \( M_k \gets Basis(F' \bmod x) \) <br>
-                            \( P_k \gets M_k P_{k-1} \) <br>
+                            <div class="return">Basis\( (F \bmod x) \)</div>
                         </div>
                     </div>
 
-                    <div class="return">
-                        \( P_{\sigma -1} \)
-                    </div>
-                </div>
+                    <div class="else">
+                        <div class="c">
+                            \( P_{\text{low}} \gets PM-Basis(F, \lfloor \sigma/2 \rfloor) \) <span
+                                class="comment">Premier sous-problème</span> <br>
+                            Soit \( F' \) tel que \( P_{\text{low}} F = x^{k} F' \) <span class="comment">Décalage
+                                du problème </span> <br>
+                            \( P_{\text{high}} \gets PM-Basis(F', \lfloor \sigma/2 \rfloor) \) <span
+                                class="comment">Deuxième sous-problème</span> <br>
 
-                <div class="theorem">
-                    <p>
-                        La complexité de l'algorithme Basis est \( \mathcal{O} (m^\omega \sigma^2) \) opérations dans le
-                        corps de base.
-                    </p>
-                </div>
-
-                <div class="remark">
-                    <ul>
-                        <li class="nowrap">
-                            On peut réaliser la ligne 4 en \( \mathcal{O} (m^\omega \sigma)\), la ligne 5 est en \(
-                            \mathcal{O} (m^\omega) \)
-                            car les coefficients sont entiers.
-                        </li>
-                        <li>
-                            Il faut voir la ligne 3 comme un décalage.
-                        </li>
-                        <li>
-                            On se sert du théorème 5.3 pour prouver la correction de l'algorithme.
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="paragraph">
-                    On présente maintenant un algorithme sur le principe diviser-pour-régner
-                    <strong>quasi-linéaire</strong> qui découpe la précision en \(2\).
-                    \[
-                    (F, 1) \rightarrow (F, 2) \rightarrow (F, 4) \rightarrow \cdots \rightarrow \left(F,
-                    \frac{\sigma}{2}\right) \rightarrow (F, \sigma)
-                    \]
-                </div>
-
-                <div class="algorithm">
-                    <h2>PM-Basis</h2>
-
-                    <div class="meta">
-                        <div class="in"> \( F \in (\mathbb{F}[x]_{<\sigma})^{m \times n} \), un vecteur de décalage \(
-                                \vec{s} \), \( \sigma \in \mathbb{N} \)</div>
-                                <div class="out"> Une \( (F, \sigma, \vec{s}) \)-base d’ordre et son degré de ligne \(
-                                    \vec{s} \)</div>
                         </div>
 
-                        <div class="conditional">
-                            <div class="if">
-                                \( \sigma = 1 \)
-                                <div class="c">
-                                    <div class="return">Basis\( (F \bmod x) \)</div>
-                                </div>
-                            </div>
-
-                            <div class="else">
-                                <div class="c">
-                                    \( P_{\text{low}} \gets PM-Basis(F, \lfloor \sigma/2 \rfloor) \) <span
-                                        class="comment">Premier sous-problème</span> <br>
-                                    Soit \( F' \) tel que \( P_{\text{low}} F = x^{k} F' \) <span
-                                        class="comment">Décalage du problème </span> <br>
-                                    \( P_{\text{high}} \gets PM-Basis(F', \lfloor \sigma/2 \rfloor) \) <span
-                                        class="comment">Deuxième sous-problème</span> <br>
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="return">\( P_{\text{high}} \cdot P_{\text{low}} \)} // Résoudre le problème original
-                        </div>
-                    </div>
-
-                    <div class="theorem">
-                        <p>
-                            La complexité de l'algorithme PM-Basis est \( \mathcal{O}( MM(m, \sigma) \log(\sigma)) \)
-                            opérations dans le corps de base.
-                        </p>
-                    </div>
-
-                    <div class="remark">
-                        <ul>
-                            <li>
-                                Il faut voir la ligne 5 comme un décalage.
-                            </li>
-                            <li>
-                                La complexité peut se calculer en écrivant l'arbre binaire associé.
-                            </li>
-                            <li>
-                                On se sert du théorème 5.3 pour prouver la correction de l'algorithme.
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="paragraph">
-                        Les algorithmes que nous avons vus sont des algorithmes pour calculer des bases d'ordre et non
-                        réduire des matrices par lignes.
                     </div>
                 </div>
+                <div class="return">\( P_{\text{high}} \cdot P_{\text{low}} \) // Résoudre le problème original
+                </div>
+            </div>
+
+            <div class="theorem">
+                <p>
+                    La complexité de l'algorithme PM-Basis est \( \mathcal{O}( MM(m, \sigma) \log(\sigma)) \)
+                    opérations dans le corps de base.
+                </p>
+            </div>
+
+            <div class="remark">
+                <ul>
+                    <li>
+                        Il faut voir la ligne 5 comme un décalage.
+                    </li>
+                    <li>
+                        La complexité peut se calculer en écrivant l'arbre binaire associé.
+                    </li>
+                    <li>
+                        On se sert du théorème 5.3 pour prouver la correction de l'algorithme.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="paragraph">
+                Les algorithmes que nous avons vus sont des algorithmes pour calculer des bases d'ordre et non
+                réduire des matrices par lignes.
+            </div>
+        </div>
     </main>
 
     <footer id="main-footer"></footer>

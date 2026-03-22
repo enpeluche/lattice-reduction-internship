@@ -22,7 +22,7 @@
     <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
 
     <!------ RENDER KATEX ------>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <script defer
@@ -88,11 +88,51 @@
                 <div class="paragraph">
                     <ol>
                         <li>
-                            a completer
+                            <ol>
+                                <li>\hyperref[step:P]{\emph{Proprification partielle de $g_i$}} se traduit
+                                    matriciellement par \( H = EG \).</li>
+                                <li>
+                                    La nouvelle famille est
+
+                                    \[
+                                    \left(g_1,\; \ldots,\; g_{i-1},\; g_i - \lceil \mu_{i,j} \rfloor g_j,\;
+                                    g_{i+1},\; \ldots,\; g_n\right).
+                                    \]
+
+                                    On rappelle que \( i \) et \( j \) sont fixés et que \( 1 \leq j \leq i-1\). On a
+                                    par
+                                    définition du procédé de Gram-Schmidt \( h_k^* = g_k^*\) pour \( 1 \leq k \leq
+                                    i-1\).
+
+                                    Pour \( k = i\), on a
+
+                                    \[
+                                    \begin{aligned}
+                                    h_i^* & = h_i - \sum_{k = 1}^{i-1} \gscoeff{h_i}{h_k^*} \\
+                                    & = g_j - \nint{\mu_{i,j}} g_j - \sum_{k = 1}^{i-1} \gscoeff{g_i -
+                                    \nint{\mu_{i,j}}
+                                    g_j}{g_k^*} \\
+                                    & = g_i^* + \nint{\mu_{i,j}} \sum_{k=1}^{i-1} \gscoeff{g_j}{g_k^*} -
+                                    \nint{\mu_{i,j}}
+                                    g_j \\
+                                    & = g_i^* + \nint{\mu_{i,j}} \sum_{k=1}^{j} \gscoeff{g_j}{g_k^*} -
+                                    \nint{\mu_{i,j}}
+                                    g_j \\
+                                    & = g_i^* + \nint{\mu_{i,j}} \sum_{k=1}^{j-1} \gscoeff{g_j}{g_k^*} + g_j^*-
+                                    \nint{\mu_{i,j}} g_j \\
+                                    & = g_i^*
+                                    \end{aligned}
+                                    \]
+
+                                    Ainsi \( h_i^* = g_i^*\). En poursuivant le procédé de Gram-Schmidt , on en
+                                    conclut \( H^* = G^*\).
+                                </li>
+                                <li>
+                                    On a \( NG^* = NH^* = H = EG = EMG^*\). En identifiant on a \( N=EM \).
+                                </li>
+                            </ol>
                         </li>
-                        <li>
-                            a completer
-                        </li>
+
                         <li>
                             Au début de la boucle lorsque \( j=i-1 \) on a trivialement l'inégalité.
 

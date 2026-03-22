@@ -22,7 +22,7 @@
     <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
 
     <!------ RENDER KATEX ------>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <script defer
@@ -120,14 +120,18 @@
             <div class="counterexample">
                 Considérons l'ensemble $\R$ et l'anneau $\mathbb{C}$. On cherche à définir une structure de
                 $\mathbb{C}$-module sur $\R$ via la multiplication usuelle :
+
                 \[
                 \forall \alpha \in \mathbb{C},\ \forall r \in \R,\quad \alpha \cdot r := \alpha r.
                 \]
+
                 Cependant, cette loi externe n'est pas bien définie car elle n'est pas <strong>fermée</strong> :
+
                 \[
                 \text{par exemple, } \alpha = i \in \mathbb{C},\ r = 1 \in \R \quad \Rightarrow \quad \alpha \cdot r = i
                 \notin \R.
                 \]
+
                 Donc $\R$ n’est pas stable par multiplication par les scalaires complexes. Il ne peut pas être muni
                 d’une structure de $\mathbb{C}$-module.
             </div>

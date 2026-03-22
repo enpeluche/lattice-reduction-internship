@@ -22,7 +22,7 @@
     <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
 
     <!------ RENDER KATEX ------>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <script defer
@@ -63,9 +63,8 @@
             <h3>Fonctionnement et exemple</h3>
             <div class="paragraph">
                 Nous présentons à présent l’algorithme de Lenstra–Lenstra–Lovász (\( \mathrm{LLL} \)), dans sa forme
-                classique.
-                Originellement \( \mathrm{LLL} \) est apparu dans l'article de 1982 et servait à factoriser des
-                polynômes à coefficients rationnels.
+                classique. Originellement \( \mathrm{LLL} \) est apparu dans l'article de 1982 et servait à factoriser
+                des polynômes à coefficients rationnels.
             </div>
 
             <div class="algorithm">
@@ -128,16 +127,14 @@
             </div>
 
             <div class="paragraph">
-                L’algorithme débute par le calcul de la base orthogonalisée de Gram–Schmidt,
-                qui sert de support aux opérations de réduction.
-                Le principe général repose sur l’application répétée de deux types d’étapes :
-                des <strong>réductions de taille</strong> visant à raccourcir les vecteurs sans sortir du réseau,
-                et des <strong>permutations</strong> de vecteurs effectuées lorsque la condition de Lovász,
-                qui contrôle la décroissance des normes, n’est pas satisfaite.
-                L’ensemble de ces opérations est imbriqué dans une boucle while qui se répète
-                tant qu’une condition de progression n’est pas remplie.
-                Nous verrons que cette condition de Lovász garantit non seulement une amélioration à chaque étape,
-                mais également la terminaison de l’algorithme en un nombre fini d’itérations.
+                L’algorithme débute par le calcul de la base orthogonalisée de Gram–Schmidt, qui sert de support aux
+                opérations de réduction. Le principe général repose sur l’application répétée de deux types d’étapes :
+                des <strong>réductions de taille</strong> visant à raccourcir les vecteurs sans sortir du réseau, et des
+                <strong>permutations</strong> de vecteurs effectuées lorsque la condition de Lovász, qui contrôle la
+                décroissance des normes, n’est pas satisfaite. L’ensemble de ces opérations est imbriqué dans une boucle
+                while qui se répète tant qu’une condition de progression n’est pas remplie. Nous verrons que cette
+                condition de Lovász garantit non seulement une amélioration à chaque étape, mais également la
+                terminaison de l’algorithme en un nombre fini d’itérations.
             </div>
 
             <div class="example">
@@ -158,10 +155,9 @@
                 |\mathscr{L} (B)| = 9, \quad A = \max_{1 \leq i \leq 3} \| b_i \| = 70
                 $$
 
-                On va essayer d'estimer un plus court vecteur
-                L'algorithme LLL commence par calculer la décomposition de Gram-Schmidt de \( B \),
-                pour plus de détails sur le calcul de cette décomposition, ce calcul est effectué dans
-                appendix:linear_algebra.
+                On va essayer d'estimer un plus court vecteur. L'algorithme LLL commence par calculer la décomposition
+                de Gram-Schmidt de \( B \), pour plus de détails sur le calcul de cette décomposition, ce calcul est
+                effectué dans appendix:linear_algebra.
 
                 On obtient la décomposition
 

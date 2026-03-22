@@ -22,7 +22,7 @@
     <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
 
     <!------ RENDER KATEX ------>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <script defer
@@ -73,10 +73,12 @@
             <div class="algorithm">
                 <h2>shiftLLL</h2>
                 <div class="meta">
-                    <div class="in"> Une base \( G \) de \( \mathscr{L} \), \( S^* \) une matrice ligne-orthogonale
+                    <div class="in">
+                        Une base \( G \) de \( \mathscr{L} \), \( S^* \) une matrice ligne-orthogonale
                     </div>
-                    <div class="out"> Une base \( B \) de \( \mathscr{L} \) tel que \( BS^* \) soit \( \mathrm{LLL}
-                        \)-réduite</div>
+                    <div class="out">
+                        Une base \( B \) de \( \mathscr{L} \) tel que \( BS^* \) soit \( \mathrm{LLL}\)-réduite
+                    </div>
                 </div>
 
                 <div class="return">\( \mathrm{LLL}(G S^*) \cdot (S^*)^{-1} \) </div>
@@ -85,18 +87,16 @@
             <div class="theorem">
                 <p>
                     L'algorithme shiftLLL calcule correctement une base \( B \) du réseau \( \mathscr{L} \) telle que \(
-                    BS^* \)
-                    soit \( \mathrm{LLL} \)-réduite.
+                    BS^* \) soit \( \mathrm{LLL} \)-réduite.
                 </p>
             </div>
 
             <div class="proof">
                 <div class="paragraph">
                     On a le diagramme commutatif suivant en voyant \( S^* \) comme la matrice de passage de la base
-                    canonique
-                    \( \mathcal{C} \) à la base \( \mathcal{C'} \coloneqq S^* \). L'écriture \(
-                    \mathscr{L}_{\mathcal{C}} \) où
-                    \( \mathcal{C} \) est une base représente \( \mathscr{L} \) exprimée dans la base \( \mathcal{C} \).
+                    canonique \( \mathcal{C} \) à la base \( \mathcal{C'} \coloneqq S^* \). L'écriture \(
+                    \mathscr{L}_{\mathcal{C}} \) où \( \mathcal{C} \) est une base représente \( \mathscr{L} \) exprimée
+                    dans la base \( \mathcal{C} \).
 
                     <!-- https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXG1hdGhzY3J7TH1fe1xcbWF0aGNhbHtDfX0iXSxbMiwwLCJcXG1hdGhzY3J7TH1fe1xcbWF0aGNhbHtDfX0iXSxbMiwyLCJcXG1hdGhzY3J7TH1fe1xcbWF0aGNhbHtDfSd9Il0sWzAsMSwiRyJdLFswLDIsIntHU14qfSIsMl0sWzEsMiwie1NeKn0iXV0= -->
                     <figure>
@@ -129,10 +129,8 @@
                 \( \mathrm{LLL}\). <br>
 
                 En revenant à la décomposition précédente, en calculant une base telle que \(V_1 V_2^*\) est \(
-                \mathrm{LLL}\)-réduite,
-                c'est-à-dire \(V_1 \) est \( \mathrm{LLL}\)-réduite pour le décalage \(V_2^*\). On peut se poser les
-                questions suivantes
-                qui sont des pistes à explorer : <br>
+                \mathrm{LLL}\)-réduite, c'est-à-dire \(V_1 \) est \( \mathrm{LLL}\)-réduite pour le décalage \(V_2^*\).
+                On peut se poser les questions suivantes qui sont des pistes à explorer : <br>
 
                 Est-ce que \( (V_2^*)^{-1} U_2 V_2 \) est "quasi" \( \mathrm{LLL}\)-réduite ?
             </div>
@@ -140,14 +138,13 @@
             <div class="problem">
                 <span class="title">(Hypothèse)</span> <br>
                 \( (V_2^*)^{-1} U_2 V_2 \) est une base propre, c'est-à-dire qu'en écrivant sa décomposition de
-                Gram-Schmidt,
-                les coefficients correspondant ne sont pas trop grand.
+                Gram-Schmidt, les coefficients correspondant ne sont pas trop grand.
             </div>
 
             <div class="paragraph">
-                La condition de Lovász peut être interprétée comme une forme de \(2\)-quasi-croissance.
-                Une question naturelle serait alors de se demander si, par analogie, le produit calculé
-                par LLL pourrait satisfaire une propriété de \(4\)-quasi-croissance.
+                La condition de Lovász peut être interprétée comme une forme de \(2\)-quasi-croissance. Une question
+                naturelle serait alors de se demander si, par analogie, le produit calculé par LLL pourrait satisfaire
+                une propriété de \(4\)-quasi-croissance.
             </div>
         </div>
 

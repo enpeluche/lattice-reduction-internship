@@ -22,7 +22,7 @@
     <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
 
     <!------ RENDER KATEX ------>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <script defer
@@ -70,7 +70,7 @@
                 f_i^2}$. Pour alléger les notations, nous omettrons l'indice $2$.
             </div>
 
-            <div class="paragraph"> <!-- OK -->
+            <div class="paragraph">
                 Ce chapitre se contentera d'exposer les résultats classiques, sans chercher à les redémontrer.
                 Rappelons qu'au sein de $\mathbb{R}^n$, toutes les normes sont équivalentes, cequi signifie qu'aucune ne
                 change la nature intrinsèque des problèmes que nous aborderons. Nous nous concentrerons néanmoins sur la
@@ -78,7 +78,7 @@
                 angles, point essentiel pour étudier la structure des <strong>réseaux euclidiens</strong>.
             </div>
 
-            <div class="paragraph"> <!-- OK -->
+            <div class="paragraph">
                 Afin de simplifier l'écriture, nous désignerons par $B=(b_i)_{1 \leq i \leq n}$ une base de
                 $\mathbb{R}^n$ et par $B^∗ = (b^∗_i )_{1 \leq i \leq n}$ sa base orthogonalisée par le procédé de
                 Gram-Schmidt. Les matrices $B$ et $B^∗$ (sans calligraphie) seront composées (en ligne) des vecteurs de
@@ -134,21 +134,21 @@
                 </p>
             </details>
 
-            <div class="definition"> <!-- OK -->
+            <div class="definition">
                 <p>
                     Un <strong>sous-réseau </strong>$\mathscr{L}'$ de $\mathscr{L}$ est un sous groupe de $\mathscr{L}$,
                     on notera $\mathscr{L}' \subseteq \mathscr{L}$.
                 </p>
             </div>
 
-            <div class="example"> <!-- OK -->
+            <div class="example">
                 <p class="nowrap">
                     Les entiers de Gauss, définit par $\Z[i]:= \Z \oplus i \Z$ forment un réseau de rang $2$ dans
                     $\mathbb{C}$, c'est même un anneau.
                 </p>
             </div>
 
-            <div class="example"> <!-- OK -->
+            <div class="example">
                 <p>
                     Un exemple plus exotique, $\Z \oplus \sqrt{2} \cdot \Z$ est un réseau de rang $2$ dans $\R$.
                 </p>
@@ -176,7 +176,7 @@
                 le réseau est de <strong>rang plein</strong>.
             </div>
 
-            <div class="example"> <!-- OK -->
+            <div class="example">
                 <p>
                     On a la suite d'inclusions $$2\Z \subset \Z \subset \frac{1}{2}\Z$$
                     Bien que $$rang(2\Z) = rang(\Z) = rang\left(\frac{1}{2}\Z\right)$$, ces ensembles sont distincts.
@@ -194,7 +194,7 @@
                 </p>
             </details>
 
-            <div class="paragraph"> <!-- OK -->
+            <div class="paragraph">
                 Existe-t-il une notion de <strong>bonne</strong> base ? Nous verrons qu'une base idéale est celle qui
                 est en un sens la plus orthogonale possible. Il n'existe pas toujours de base strictement orthogonale,
                 ce qui justifie la notion de quasi-orthogonalité. Nous allons rajouter des façons de mesurer la qualité
@@ -202,7 +202,7 @@
                 telle base.
             </div>
 
-            <figure> <!-- OK -->
+            <figure>
                 <div class="subfig-container">
                     <figure class="subfigure">
                         <img src="images/lattice_0_2.png"
@@ -219,7 +219,7 @@
                 <figcaption>Deux bases pour le même réseau de $\R^2$.</figcaption>
             </figure>
 
-            <div class="definition"> <!-- OK -->
+            <div class="definition">
                 <p class="nowrap">
                     La <strong>taille</strong> d'un réseau $\mathscr{L}(B)$ est $|det(B)|$ et est noté $|\mathscr{L}|$.
                     La taille d'un réseau est indépendante de la base choisie.
@@ -244,7 +244,7 @@
                     $$\left\{ \sum\limits_{i=0}^{n} \lambda_i b_i \mid 0 \leq \lambda_i < 1 \right\}.$$ </p>
             </div>
 
-            <div class="theorem"> <!-- OK -->
+            <div class="theorem">
                 <span class="title">Inégalité d'Hadamard</span>
                 <p>
                     Soit $B \in M_n(\mathbb{K})$ et $\mathscr{L}(B)$ un réseau.
@@ -261,7 +261,7 @@
                 |\mathscr{L}|$.
             </div>
 
-            <div class="proposition"> <!-- OK -->
+            <div class="proposition">
                 <p>
                     Soit $\mathscr{L}$ et $\mathscr{L}'$ deux réseaux de rang $n$ de base $B$ et $B'$. <br>
                     Alors $\mathscr{L}$ = $\mathscr{L}'$ si et seulement si il existe $ U \in \mathrm{GL}_n(\Z)$ tel que
@@ -290,7 +290,7 @@
                 </p>
             </div>
 
-            <div class="paragraph"> <!-- OK -->
+            <div class="paragraph">
                 Nous présentons maintenant deux <strong>invariants</strong> fondamentaux d'un réseau :
                 <ul>
                     <li>
@@ -303,12 +303,12 @@
                 </ul>
             </div>
 
-            <div class="proposition"> <!-- OK -->
+            <div class="proposition">
                 Soit $\mathscr{L}$, $\mathscr{L}'$ deux réseaux de $\R^n$ tel que $\mathscr{L}' \subseteq \mathscr{L}$
                 alors $\frac{|\mathscr{L}'|}{|\mathscr{L}|} \in \N$.
             </div>
 
-            <div class="remark"> <!-- OK -->
+            <div class="remark">
                 Ce résultat est une conséquence directe du théorème de Lagrange en théorie des groupes.
             </div>
 
@@ -374,7 +374,7 @@
             </details>
 
 
-            <div class="proposition"> <!-- OK -->
+            <div class="proposition">
                 <p>
                     \[\gamma_n = 4 \left(\frac{ \Delta _n}{V_n}\right)^{2/n} \quad \forall n \in \N^*\] où \( V_n =
                     \frac{\pi ^{n/2}}{\Gamma(\frac{n}{2} + 1)} \) et \( \Delta_n \) est la densité d'un empilement
@@ -392,7 +392,7 @@
                 </p>
             </details>
 
-            <div class="example"> <!-- OK -->
+            <div class="example">
                 On ne connaît pas la valeur exacte de \( \gamma_n \) pour tout \( n \). Seuls les valeurs dans le
                 tableau suivant sont connues de manières exactes.
 
@@ -458,7 +458,7 @@
 
                 </details>
 
-                <div class="paragraph"> <!-- OK -->
+                <div class="paragraph">
                     On sait que \( ( \gamma _n)_n \) est une suite d'ordre de croissance linéaire mais on ne sait pas si
                     elle est croissante.
                 </div>
@@ -495,7 +495,7 @@
                     </p>
                 </div>
 
-                <div class="paragraph"> <!-- OK -->
+                <div class="paragraph">
                     Tous ces résultats et inégalités vont nous donner des critères de mesure de la qualité de réduction
                     d'une base dans le chapitre sur la réduction de réseaux euclidiens.
                 </div>
