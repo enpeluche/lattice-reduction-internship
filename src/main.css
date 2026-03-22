@@ -6,6 +6,7 @@
 @import "./components/Course/Course.css";
 @import "./components/Footer/footer.css";
 @import "./components/Algorithm/Algorithm.css";
+@import "./components/references/references.css";
 @import "root.css";
 @import "reset.css";
 @import "header.css";
@@ -18,7 +19,9 @@
   font-family: "Inter", sans-serif;
 
   /* On active les jolies liaisons entre les lettres */
-  font-feature-settings: "liga" 1, "calt" 1;
+  font-feature-settings:
+    "liga" 1,
+    "calt" 1;
 }
 
 /* 3. L'amélioration progressive (Le bonus moderne) */

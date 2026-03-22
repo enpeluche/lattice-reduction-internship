@@ -21,18 +21,21 @@
 
     <link rel="icon" href="/assets/img/logo/logo.ico" type="image/x-icon">
 
-    <!-- for rendering latex -->
-
-    <!-- CSS -->
+    <!------ RENDER KATEX ------>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-
-    <!-- JS -->
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script defer
+        src="https://cdn.jsdelivr.net/gh/enpeluche/enpeluche.github.io@main/shared-assets/katex-config.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (window.setupKatex) window.setupKatex();
+        });
+    </script>
 
     <!-- ALL STYLESHEET -->
 
-    <link rel="stylesheet" href="../../src/main.css">
+    <link rel=" stylesheet" href="../../src/main.css">
 </head>
 
 <body>
@@ -63,24 +66,19 @@
             <div class="paragraph">
                 Dans l’algorithme <a class="ref-mulders-2003"></a>, chaque opération entraîne soit une diminution du
                 degré total par lignes,
-                soit un déplacement du pivot d’une ligne vers la gauche.
+                soit un déplacement du pivot d’une ligne vers la gauche. <br>
 
                 <a class="ref-nielsen-2013"></a> définit une fonction de <strong>valeur</strong> pour les vecteurs :
 
                 $\psi :$
 
-                <table>
-                    <tr>
-                        <td>
-                            $\mathbb{F}[x]^{\ell+1} & \longrightarrow & \mathbb{N}_0 $
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            $\mathbf{v} & \longmapsto & (\ell + 1) \cdot \rdeg \mathbf{v} + \mathrm{LP}(\mathbf{v})$
-                        </td>
-                    </tr>
-                </table>
+                $$
+                \psi :
+                \begin{array}{rcl}
+                \mathbb{F}[x]^{\ell+1} & \longrightarrow & \mathbb{N}_0 \\
+                \mathbf{v} & \longmapsto & (\ell + 1) \cdot \rdeg \mathbf{v} + \mathrm{LP}(\mathbf{v})
+                \end{array}
+                $$
 
                 où \( \mathrm{LP}(\mathbf{v}) \) désigne l'indice du pivot de \( \mathbf{v} \).
             </div>
@@ -120,7 +118,7 @@
                         <span class="title">Rappel</span> <br>
                         On définit
                         \[
-                        \displaystyle D \coloneqq \prod_{1 \leq k < n} d_k=\prod_{1 \leq k < n} \| b_k^*\|^{2(n-k)} \]
+                        \displaystyle D \coloneqq \prod_{1 \leq k < n} d_k=\prod_{1 \leq k < n} \| b_k^*\|^{2(n - k)} \]
                             </div>
 
                             <div class="paragraph">
@@ -131,7 +129,7 @@
                             </div>
 
                             <div class="proposition">
-                                \( \displaystyle \log(D) = \sum_{k=1}^{n-1} 2(n-k) \log (\| b_k^*\|)\)
+                                \( \displaystyle \log(D) = \sum_{k = 1}^{n - 1} 2(n-k) \log (\| b_k^*\|)\)
                             </div>
 
                             <div class="paragraph">
@@ -148,11 +146,11 @@
 
                                 \[
                                 \begin{aligned}
-                                D & = \prod_{1 \leq k < n} \| b_k^*\|^{2(n-k)} \\ &=\|b_1^*\|^{2(n-1)} \times
-                                    \|b_2^*\|^{2(n-2)} \times \cdots \times \|b_n^*\|^2 \\ & \geq \|b_1^*\|^{2(n-1)}
-                                    \times \left(\frac{\|b_1^*\|}{2}\right)^{2(n-2)} \times \cdots \times
-                                    \left(\frac{\|b_1^*\|}{2^{n-2}}\right)^2 \\ & \geq \left(
-                                    \frac{\|b_1^*\|}{2^{\frac{4}{3} (n-2)}} \right)^{(n-1)n} \end{aligned} \] </div>
+                                D & = \prod_{1 \leq k < n} \| b_k^*\|^{2(n - k)} \\ &=\|b_1^*\|^{2(n - 1)} \times
+                                    \|b_2^*\|^{2(n - 2)} \times \cdots \times \|b_n^*\|^2 \\ & \geq \|b_1^*\|^{2(n - 1)}
+                                    \times \left(\frac{\|b_1^*\|}{2}\right)^{2(n - 2)} \times \cdots \times
+                                    \left(\frac{\|b_1^*\|}{2 ^ { n- 2}}\right)^2 \\ & \geq \left( \frac{\|b_1^*\|}{2 ^
+                                    {\frac{4}{3} (n-2)}} \right)^{(n - 1)n} \end{aligned} \] </div>
 
                                     <div class="paragraph">
                                         Après la remise de ce rapport, mon travail consistera à explorer la portée
@@ -166,7 +164,7 @@
                                         Dans \parencite{MCA}, on trouve :
 
                                         \[
-                                        D \leq \left( \max_{1 \leq i \leq n} \| g_i \| \right)^{n(n-1)}.
+                                        D \leq \left( \max_{1 \leq i \leq n} \| g_i \| \right)^{n(n - 1)}.
                                         \]
 
                                         Une question naturelle est alors de savoir si cette borne peut être améliorée.

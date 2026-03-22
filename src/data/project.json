@@ -19,7 +19,11 @@
   "github": "https://github.com/Crowreed/lattice-reduction-internship",
   "intro_folder": "report/0-introduction/",
   "skills": {
-    "tech": ["Python", "LaTeX", "SageMath"],
-    "concepts": ["Algorithmique", "Réduction de réseau", "Algèbre linéaire"]
+    "tech": ["SageMath"],
+    "concepts": [
+      "Cryptographie post-quantique",
+      "Analyse de complexité",
+      "Réduction de réseaux"
+    ]
   }
 }
