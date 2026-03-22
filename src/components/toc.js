@@ -3,7 +3,7 @@ const ICONS = {
   CLOSE: `<svg class="CloseIcon" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>`,
 };
 
-import { APP_ROOT } from "../../main.js";
+import { APP_ROOT } from "../main.js";
 async function fetchTOC() {
   const paths = [`${APP_ROOT}src/data/toc.json`];
 
@@ -17,15 +17,12 @@ async function fetchTOC() {
 }
 
 export async function loadTableOfContents() {
-  // 1. GESTION DE L'ÉTAT (OUVERT/FERMÉ)
   const storedState = localStorage.getItem("is_TOC_open");
-  // Par défaut ouvert (true) si pas de sauvegarde
   let is_TOC_open = storedState === null ? true : storedState === "true";
 
   const TOC = document.getElementById("toc-wrapper");
   if (!TOC) return;
 
-  // CORRECTION IMPORTANTE : On applique l'état visuel tout de suite !
   if (is_TOC_open) {
     TOC.classList.add("is-open");
   }
@@ -45,8 +42,8 @@ export async function loadTableOfContents() {
           ? `<div class="num">APPENDICE ${++appendixNum}</div>`
           : ``
         : chap.isNumbered
-        ? `<div class="num">CHAPITRE ${++chapNum}</div>`
-        : ``;
+          ? `<div class="num">CHAPITRE ${++chapNum}</div>`
+          : ``;
       const activeStyle = isActive
         ? "border:2px solid var(--primary-border-color);"
         : "";
@@ -58,8 +55,8 @@ export async function loadTableOfContents() {
           return `
                 <li style="${subStyle}">
                     <a href="${APP_ROOT}${sub.path}" target="_self" title="${
-            sub.title
-          }" rel="noopener referrer">
+                      sub.title
+                    }" rel="noopener referrer">
                         <span class="num">${++i}</span>
                         <h4>${sub.title}</h4>
                     </a>
@@ -82,8 +79,7 @@ export async function loadTableOfContents() {
     })
     .join("");
 
-  // Génération du HTML
-  TOC.innerHTML = `        
+  TOC.innerHTML = `
         <button id='toc-open-button' aria-label='Ouvrir le sommaire'>
             ${ICONS.OPEN}
         </button>
@@ -100,26 +96,20 @@ export async function loadTableOfContents() {
         </div>
     `;
 
-  // 2. FONCTION TOGGLE CORRIGÉE
   const toggle = () => {
-    // On bascule la classe
     TOC.classList.toggle("is-open");
 
-    // On vérifie si la classe est présente pour savoir l'état
     const isOpen = TOC.classList.contains("is-open");
 
-    // On sauvegarde
     localStorage.setItem("is_TOC_open", isOpen);
   };
 
-  // Ajout des écouteurs d'événements
   document.getElementById("toc-open-button").onclick = toggle;
   document.getElementById("toc-close-button").onclick = toggle;
 
-  // 3. GESTION DU SCROLL
   const uniqueKey = "scroll_pos";
   const savedScroll = localStorage.getItem(uniqueKey);
-  const musicContainer = document.getElementById("music"); // On récupère l'élément une fois
+  const musicContainer = document.getElementById("music");
 
   if (savedScroll && musicContainer) {
     musicContainer.scrollTop = parseInt(savedScroll);

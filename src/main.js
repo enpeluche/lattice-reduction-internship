@@ -1,11 +1,11 @@
-import { loadTableOfContents } from "./components/TableOfContents/TableOfContents.js";
 import { createNews } from "./components/News/News.js";
 import { createProject } from "./components/Project/Project.js";
-import { makeArticle } from "./components/Course/Course.js";
-import { loadFooter } from "./components/Footer/footer.js";
-import { loadReferences } from "./components/references/references.js";
 
-import { makeAlgorithm } from "./components/Algorithm/Algorithm.js";
+import { loadTableOfContents } from "./components/toc.js";
+import { makeArticle } from "./components/course.js";
+import { loadFooter } from "./components/footer.js";
+import { loadReferences } from "./components/references.js";
+import { makeAlgorithm } from "./components/algorithm.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   loadTableOfContents();
